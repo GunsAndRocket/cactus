@@ -4,7 +4,7 @@
 Волонтир Олександр:front-end
 Кривоніс Артем:manager,back-end,coffe-maker
 Степюк Євнген:Android-dev,UI/UX
-Идея проект:
+Ідея проекту:
 KPI Events - система для моніторингу подій
 Делегат:
 Анастасьєв Дмитро, dmytro.anastasiev@gmail.com
