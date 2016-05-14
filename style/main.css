@@ -49,6 +49,7 @@ form {
     padding-bottom: 16px;
     border-radius: 4px;
     box-shadow: 0 0 1px #eee, 0 0 12px #bdbdbd, 0 24px 36px #bdbdbd;
+    box-sizing: content-box;
 }
 
 .profile {
