@@ -6,32 +6,23 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.gunsandrocket.ua.cactus.R;
-import com.gunsandrocket.ua.cactus.activity.DrawerActivity;
 import com.gunsandrocket.ua.cactus.base.BaseFragment;
 import com.gunsandrocket.ua.cactus.base.BasePlaceholderFragment;
-import com.gunsandrocket.ua.cactus.databinding.FragmentFeedBinding;
-import com.gunsandrocket.ua.cactus.databinding.FragmentListBinding;
+import com.gunsandrocket.ua.cactus.databinding.FragmentCategoriesBinding;
 
-public class FeedFragment extends BaseFragment {
+public class CategoriesFragment extends BaseFragment {
 
-    private FragmentFeedBinding binding;
+    private FragmentCategoriesBinding binding;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_feed, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_categories, container, false);
         binding.container.setAdapter(new SectionsPagerAdapter(getChildFragmentManager()));
         binding.tabs.setupWithViewPager(binding.container);
         activity.setSupportActionBar(binding.toolbar);
@@ -41,15 +32,15 @@ public class FeedFragment extends BaseFragment {
 
     public static class PlaceholderFragment extends BasePlaceholderFragment {
 
-        public static final int SECTION_ALL = 0;
-        public static final int SECTION_RECOMMENDED = 1;
+        public static final int SECTION_SCIENCE = 0;
+        public static final int SECTION_ENTERTAINMENT = 1;
+        public static final int SECTION_SPORT = 2;
 
         @Override
         public void onActivityCreated(@Nullable Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
 
             //Here we have to set adapter and bind it with data provider
-
         }
     }
 
@@ -66,16 +57,18 @@ public class FeedFragment extends BaseFragment {
 
         @Override
         public int getCount() {
-            return 2;
+            return 3;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
-                case PlaceholderFragment.SECTION_ALL:
-                    return getResources().getString(R.string.all_events);
-                case PlaceholderFragment.SECTION_RECOMMENDED:
-                    return getResources().getString(R.string.recommended_events);
+                case PlaceholderFragment.SECTION_SCIENCE:
+                    return getResources().getString(R.string.science_categorie);
+                case PlaceholderFragment.SECTION_ENTERTAINMENT:
+                    return getResources().getString(R.string.entertainment_categorie);
+                case PlaceholderFragment.SECTION_SPORT:
+                    return getResources().getString(R.string.sport_categorie);
             }
             return null;
         }

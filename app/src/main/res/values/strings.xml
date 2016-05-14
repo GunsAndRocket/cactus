@@ -7,4 +7,7 @@
     <string name="action_about_us">About us</string>
     <string name="all_events">all</string>
     <string name="recommended_events">recommended</string>
+    <string name="science_categorie">science</string>
+    <string name="entertainment_categorie">entertainment</string>
+    <string name="sport_categorie">sport</string>
 </resources>

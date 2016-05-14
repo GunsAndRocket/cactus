@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.gunsandrocket.ua.cactus.R;
 import com.gunsandrocket.ua.cactus.databinding.ActivityDrawerBinding;
+import com.gunsandrocket.ua.cactus.fragment.CategoriesFragment;
 import com.gunsandrocket.ua.cactus.fragment.FeedFragment;
 
 public class DrawerActivity extends AppCompatActivity {
@@ -41,7 +42,7 @@ public class DrawerActivity extends AppCompatActivity {
                         break;
 
                     case R.id.menu_item_categories:
-                        //changeFragment(R.id.container, new CategoriesFragment());
+                        changeFragment(R.id.container, new CategoriesFragment());
                         break;
 
                     case R.id.menu_item_subscriptions:
