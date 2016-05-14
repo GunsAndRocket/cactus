@@ -48,6 +48,16 @@ QB.createSession(QBUser, function(err, result){
 //         }
 //     });
 // }
+// $("#upload").change(function () {
+//     var file = $('#upload').val();
+//     if (file !== null) {
+//         if ($('.filename').val() !== null) {
+//             $($('.filename')).empty();
+//         }
+//         $("<h1>"+file+"</h1>").appendTo('.filename');
+//     }
+// });
+
 
 function addNewPost(eventName, tag, organiser, description, startDate, vkLink, place) {
     QB.data.create("Events", {
