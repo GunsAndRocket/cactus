@@ -16,19 +16,21 @@
     <!--<div>-->
     <!--<input id="email" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z0-1]{2,24}$" placeholder="Email" required="" style="opacity: .999;" type="email" value="" />-->
     <!--</div>-->
-    <input id="text" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}"
+    <input id="text" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern="[a-zA-Z0-9]{2,50}"
            placeholder="Name of Event" autocomplete="off" required="" type="text" value=""/>
-    <input id="tag" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}" placeholder="Tag"
+    <input id="tag" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z0-1]{2,50}" placeholder="Tag"
            autocomplete="off" required="" type="text" value=""/>
-    <input id="organiser" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}"
+    <input id="organiser" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z0-1]{2,50}"
            placeholder="Organiser" autocomplete="off" required="" type="text" value=""/>
-    <textarea id="description" type="text" placeholder="Description"></textarea>
+    <textarea id="description" type="text" placeholder="Description" required=""></textarea>
     <!--<input id="" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}" placeholder="Description" autocomplete="off" required="" type="textarea" value="" />-->
+    <input id="photo" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern="[a-z0-9._%+-][a-z0-9.-]+\.[a-zA-Z0-1]{2,50}" placeholder="photo/url"
+           autocomplete="off" required="" type="text" value=""/>
     <input id="startDate"
            placeholder="StartDate" autocomplete="off" required="" type="datetime-local" value=""/>
-    <input id="vkLink" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}" placeholder="Vk-link"
+    <input id="vkLink" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z0-1]{2,50}" placeholder="Vk-link"
            autocomplete="off" required="" type="text" value=""/>
-    <input id="place" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}" placeholder="Place"
+    <input id="place" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z0-1]{2,50}" placeholder="Place"
            autocomplete="off" required="" type="text" value=""/>
 
     <!--<label for="password">-->

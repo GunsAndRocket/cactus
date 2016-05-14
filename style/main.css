@@ -10,6 +10,9 @@ body {
     margin: 0 auto;
     font-family: 'Open Sans', sans-serif;
 }
+#photo{
+    width: 590px;
+}
 .header {
     background: #2e7d32;
     margin-bottom: 36px;
@@ -84,8 +87,44 @@ input::-webkit-input-placeholder
 {
     font-weight: 300;
 }
+textarea::-webkit-input-placeholder
+{
+    font-weight: 300;
+}
 textarea[type="text"]{
+    text-align: left;
     resize: none;
+    border: 0;
+    background: rgba(0,0,0,0);
+    outline: 0;
+    width: 800px;
+    /*height: 0px;*/
+    margin: 0px 10px 20px -8px;
+    padding: 25px 8px 4px;
+    transition: all 0.2s;
+    color: #424242;
+    box-shadow: 0 304px 0 -300px rgba(33,150,243,0), 0 2px 0 0 #fff, 0 4px 0 0 #757575;
+    font-size: 24px;
+}
+textarea[type="text"]:focus{
+    text-align: left;
+    box-shadow: 0 4px 0 0 #03a9f4, 0 2px 0 0 #fff, 0 4px 0 0 #757575;
+}
+textarea[type="text"]::-webkit-input-placeholder{
+    text-align: left;
+    transition: all 10s, font-size 0.2s, top 0.2s, color 0.2s, font-weight 0.2s;
+    position: relative;
+    top: 0;
+    color: #757575;
+}
+textarea[type="text"]:focus::-webkit-input-placeholder
+{
+    text-align: left;
+    top: -24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #2e7d32;
+    transition: all 10000000s, font-size 0.2s, top 0.2s, color 0.2s, font-weight 0.2s;
 }
 input[type="datetime-local"]{
     border: 0;
@@ -94,7 +133,7 @@ input[type="datetime-local"]{
     width: 200px;
     /*height: 0px;*/
     margin: 0px 10px 20px -8px;
-    padding: 15px 4px 8px 4px;
+    padding: 15px 8px 4px;
     transition: all 0.2s;
     color: #424242;
     box-shadow: 0 304px 0 -300px rgba(33,150,243,0), 0 2px 0 0 #fff, 0 4px 0 0 #757575;
@@ -143,11 +182,6 @@ input[type="text"]:focus::-webkit-input-placeholder
     font-weight: bold;
     color: #2e7d32;
     transition: all 10000000s, font-size 0.2s, top 0.2s, color 0.2s, font-weight 0.2s;
-}
-input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
-    /*background-color: ;*/
-    /*background-image: none;*/
-    /*color: rgb(0, 0, 0);*/
 }
 /*input[type="datetime-local"]:not(:focus):valid,*/
 input[type="text"]:not(:focus):valid {
