@@ -86,3 +86,22 @@ function addNewPost(eventName, tag, organiser, description, startDate, vkLink, p
         }
     });
 }
+
+// $('#send_post').click(function(e) {
+//     e.preventDefault();
+//
+//     var eventName = $('#text').val();
+//     var tag = $('#tag').val();
+//     var organiser = $('#organiser').val();
+//     var description = $('#description').val();
+//     var startDate = $('#startDate').val();
+//     var vkLink = $('#vkLink').val();
+//     var place = $('#place').val();
+//     // Adds a new post
+//     if (eventName && tag && organiser && description && startDate &&  vkLink && place) {
+//         // $("#load-img").show(0);
+//         addNewPost(eventName, tag, organiser, description, startDate, vkLink, place);
+//     } else {
+//         alert('Please complete all required fields');
+//     }
+// });

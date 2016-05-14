@@ -16,9 +16,9 @@
     <!--<div>-->
     <!--<input id="email" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z0-1]{2,24}$" placeholder="Email" required="" style="opacity: .999;" type="email" value="" />-->
     <!--</div>-->
-    <input id="text" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{2,30}"
+    <input id="text" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}"
            placeholder="Name of Event" autocomplete="off" required="" type="text" value=""/>
-    <input id="tag" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{3,25}" placeholder="Tag"
+    <input id="tag" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}" placeholder="Tag"
            autocomplete="off" required="" type="text" value=""/>
     <input id="organiser" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}"
            placeholder="Organiser" autocomplete="off" required="" type="text" value=""/>
@@ -40,8 +40,13 @@
     <label for="checkbox">Stay signed in</label>
     <br/>
     <!--<label><a href="#">Need an Account?</a></label>-->
-    <input id="sendpost" type="submit" value="Submit"/>
+    <input id="send_post" type="submit" value="Submit"/>
 </form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="js/quickblox.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
 <!--
