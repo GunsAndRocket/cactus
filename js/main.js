@@ -115,7 +115,7 @@ function addNewPost(eventName, tag, organiser, description, startDate, vkLink, p
                 notification_type: 'push',
                 user: {tags: {any: [tag]}},
                 environment: 'development', // environment, can be 'production' as well.
-                message: QB.pushnotifications.base64Encode('Allow, misha')
+                message: QB.pushnotifications.base64Encode("Hey, guys, let's go smoking")
             };
 
             QB.pushnotifications.events.create(params, function(err, response) {
