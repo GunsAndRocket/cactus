@@ -44,8 +44,8 @@ form {
     width: 800px;
     margin: 0 auto 24px auto;
     background: #eee;
-    padding: 88px 64px;
-    padding-top: 24px;
+    /*padding: 8px 6px;*/
+    /*padding-top: 24px;*/
     padding-bottom: 16px;
     border-radius: 4px;
     box-shadow: 0 0 1px #eee, 0 0 12px #bdbdbd, 0 24px 36px #bdbdbd;
