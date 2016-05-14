@@ -7,17 +7,17 @@ import android.view.Gravity;
 import android.view.MenuItem;
 
 import com.gunsandrocket.ua.cactus.R;
-import com.gunsandrocket.ua.cactus.activity.DrawerActivity;
+import com.gunsandrocket.ua.cactus.activity.MainActivity;
 
 public abstract class BaseFragment extends Fragment {
 
-    protected DrawerActivity activity;
+    protected MainActivity activity;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        activity = (DrawerActivity) getActivity();
+        activity = (MainActivity) getActivity();
         setHasOptionsMenu(true);
     }
 

@@ -1,22 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gunsandrocket.ua.cactus">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
+        android:name=".Application"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
 
-        <activity android:name=".activity.DrawerActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-
+        </activity>
+        <activity android:name=".activity.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.ChooseAddMethodActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".activity.AddEventActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
+
+        <activity
+            android:name="com.vk.sdk.VKServiceActivity"
+            android:label="ServiceActivity" android:theme="@style/VK.Transparent">
+        </activity>
+
+        <receiver
+            android:name=".notifications.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="ua.gunsandrocket.kpievents" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 2. Add the following intent service: -->
+        <service android:name=".notifications.GCMIntentService" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+
+
     </application>
+
+    <!-- 4. Declare and use a custom permission so only this application can receive GCM messages.
+      This permission must be called my_app_package.permission.C2D_MESSAGE
+      (where my_app_package is the package name of your app as defined by the manifest tag),
+      otherwise it will not work. -->
+    <permission
+        android:name="ua.gunsandrocket.kpievents.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="ua.gunsandrocket.kpievents.permission.C2D_MESSAGE" />
+
+    <!-- 5. Add the following permissions: -->
+    <!-- App receives GCM messages. -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <!-- GCM connects to Google Services. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- GCM requires a Google account. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- Keeps the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Access to  device info-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+
 
 </manifest>

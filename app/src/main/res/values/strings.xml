@@ -11,4 +11,16 @@
     <string name="entertainment_categorie">entertainment</string>
     <string name="sport_categorie">sport</string>
     <string name="events">events</string>
+
+    <integer name="com_vk_sdk_AppId">5379550</integer>
+
+    <string name="QB_APP_ID">37788</string>
+    <string name="QB_AUTH_KEY">eGzjCrVbcOPu6dE</string>
+    <string name="QB_AUTH_SECRET">zk7yJdRPDTGRm-n</string>
+    <string name="QB_ACCOUNT_KEY">gHzxSyxTqbt7Q7jL17Cr</string>
+
+    <string name="id_user">idUser</string>
+    <string name="tags_list">tagsList</string>
+
+    <string name="tag">TAG</string>
 </resources>

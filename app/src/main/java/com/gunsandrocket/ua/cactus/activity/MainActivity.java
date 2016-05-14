@@ -14,7 +14,7 @@ import com.gunsandrocket.ua.cactus.databinding.ActivityDrawerBinding;
 import com.gunsandrocket.ua.cactus.fragment.CategoriesFragment;
 import com.gunsandrocket.ua.cactus.fragment.FeedFragment;
 
-public class DrawerActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     public ActivityDrawerBinding binding;
 

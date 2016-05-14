@@ -6,23 +6,14 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.gunsandrocket.ua.cactus.R;
-import com.gunsandrocket.ua.cactus.activity.DrawerActivity;
 import com.gunsandrocket.ua.cactus.base.BaseFragment;
 import com.gunsandrocket.ua.cactus.base.BasePlaceholderFragment;
 import com.gunsandrocket.ua.cactus.databinding.FragmentFeedBinding;
-import com.gunsandrocket.ua.cactus.databinding.FragmentListBinding;
 
 public class FeedFragment extends BaseFragment {
 

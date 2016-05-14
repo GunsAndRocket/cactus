@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 23
@@ -20,14 +21,35 @@ android {
     dataBinding {
         enabled = true
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
-
+repositories {
+    maven {
+        url "https://github.com/QuickBlox/quickblox-android-sdk-releases/raw/master/"
+    }
+}
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':vksdk_library')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
     compile 'com.android.support:cardview-v7:23.2.1'
     compile 'com.android.support:recyclerview-v7:23.2.1'
+
+    compile files('libs/quickblox-android-sdk-content-2.5.1.jar')
+    compile files('libs/quickblox-android-sdk-customobjects-2.5.1.jar')
+    compile files('libs/quickblox-android-sdk-messages-2.5.1.jar')
+    compile 'com.jakewharton:butterknife:7.0.1'
+
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'io.reactivex:rxjava:1.1.0'
+
+    compile 'com.google.android.gms:play-services:7.8.0'
+
+    compile files('libs/quickblox-android-sdk-core-2.5.1.jar')
 }
  
