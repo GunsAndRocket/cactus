@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.gunsandrocket.ua.cactus.R;
 import com.gunsandrocket.ua.cactus.databinding.ActivityDrawerBinding;
@@ -63,5 +64,9 @@ public class DrawerActivity extends AppCompatActivity {
                 .beginTransaction()
                 .add(id, fragment)
                 .commit();
+    }
+
+    public void onStarClicked(View view) {
+        view.setSelected(!view.isSelected());
     }
 }

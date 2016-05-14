@@ -11,4 +11,8 @@
     <string name="entertainment_categorie">entertainment</string>
     <string name="sport_categorie">sport</string>
     <string name="events">events</string>
+    <string name="followers">followers</string>
+    <string name="event_place">place</string>
+    <string name="event_date">date</string>
+    <string name="event_contacts">contacts</string>
 </resources>
