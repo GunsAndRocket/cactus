@@ -61,7 +61,21 @@ QB.createSession(QBUser, function(err, result){
         });
     }
 });
+$("#upload").change(function() {
 
+    var val = $(this).val();
+
+    switch(val.substring(val.lastIndexOf('.') + 1).toLowerCase()){
+        case 'gif': case 'jpg': case 'png':
+        //OK it`s image
+        break;
+        default:
+            $(this).val('');
+            // error message here
+            alert("not an image");
+            break;
+    }
+});
 // function getAllPosts() {
 //     QB.data.list("Blog", filter, function(err, result){
 //         if (err) {
