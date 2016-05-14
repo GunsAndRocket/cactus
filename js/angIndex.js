@@ -14,28 +14,35 @@ app.controller('AppCtrl', ["$scope", function ($scope) {
         } else {
             console.log('Session created with id ' + result.id);
             // Get all posts
-            getAllPosts($scope.items);
+            getAllPosts();
 
             console.log($scope.items);
         }
+        function getAllPosts() {
+            QB.data.list("Events", function(err, result){
+                if (err) {
+                    console.log(err);
+                    console.log("IDI NAXUI");
+                } else {
+                    console.log(result);
+                    console.log("MALADEC");
+                    // $scope.items = result.items;
+                    // return $scope.items;
+
+
+                    var scope = angular.element(document.getElementsByTagName("body")).scope();
+                    scope.$apply(function() {
+                        scope.items = result.items;
+                    });
+
+
+                }
+                // return $scope.items;
+            });
+        }
     });
     // $scope.items = getAllPosts();
-    function getAllPosts(items) {
-        QB.data.list("Events", function(err, result){
-            if (err) {
-                console.log(err);
-                console.log("IDI NAXUI");
-            } else {
-                console.log(result);
-                console.log("MALADEC");
-                items = result.items;
-                console.log(items);
-                // console.log(result);
-                return $scope.items;
-            }
-            return $scope.items;
-        });
-    }
+
 }]);
 
 
