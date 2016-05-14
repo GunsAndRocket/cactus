@@ -87,7 +87,28 @@ input::-webkit-input-placeholder
 textarea[type="text"]{
     resize: none;
 }
-input[type="email"],
+input[type="datetime-local"]{
+    border: 0;
+    background: rgba(0,0,0,0);
+    outline: 0;
+    width: 200px;
+    /*height: 0px;*/
+    margin: 0px 10px 20px -8px;
+    padding: 15px 4px 8px 4px;
+    transition: all 0.2s;
+    color: #424242;
+    box-shadow: 0 304px 0 -300px rgba(33,150,243,0), 0 2px 0 0 #fff, 0 4px 0 0 #757575;
+    font-size: 12px;
+}
+input[type="datetime-local"]:focus{
+    box-shadow: 0 4px 0 0 #03a9f4, 0 2px 0 0 #fff, 0 4px 0 0 #757575;
+}
+input[type="datetime-local"]::-webkit-input-placeholder{
+    transition: all 10s, font-size 0.2s, top 0.2s, color 0.2s, font-weight 0.2s;
+    position: relative;
+    top: 0;
+    color: #757575;
+}
 input[type="email"],
 input[type="email"],
 input[type="text"] {
@@ -97,25 +118,24 @@ input[type="text"] {
     width: 800px;
     /*height: 0px;*/
     margin: 0px 10px 20px -8px;
-    padding: 15px 4px 8px 4px;
+    padding: 15px 8px 4px;
     transition: all 0.2s;
     color: #424242;
     box-shadow: 0 304px 0 -300px rgba(33,150,243,0), 0 2px 0 0 #fff, 0 4px 0 0 #757575;
     font-size: 24px;
 }
-input[type="email"]:focus,
+
 input[type="text"]:focus {
     box-shadow: 0 4px 0 0 #03a9f4, 0 2px 0 0 #fff, 0 4px 0 0 #757575;
 }
 /*input[type="email"]::-moz-input-placeholder,*/
-input[type="text"]::-webkit-input-placeholder,
-input[type="email"]::-webkit-input-placeholder{
+input[type="text"]::-webkit-input-placeholder{
     transition: all 10s, font-size 0.2s, top 0.2s, color 0.2s, font-weight 0.2s;
     position: relative;
     top: 0;
     color: #757575;
 }
-input[type="email"]:focus::-webkit-input-placeholder,
+/*input[type="datetime-local"]:focus::-webkit-input-placeholder,*/
 input[type="text"]:focus::-webkit-input-placeholder
 {
     top: -24px;
@@ -129,11 +149,11 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     /*background-image: none;*/
     /*color: rgb(0, 0, 0);*/
 }
-input[type="email"]:not(:focus):valid,
+/*input[type="datetime-local"]:not(:focus):valid,*/
 input[type="text"]:not(:focus):valid {
     box-shadow: 0 304px 0 -300px rgba(63,81,181,0), 0 2px 0 0 #fff, 0 4px 0 0 #388e3c;
 }
-input[type="email"]:not(:focus):not([value=""])::-webkit-input-placeholder,
+/*input[type="datetime-local"]:not(:focus):not([value=""])::-webkit-input-placeholder,*/
 input[type="text"]:not(:focus):not([value=""])::-webkit-input-placeholder{
     top: -24px;
     font-size: 16px;
@@ -141,12 +161,12 @@ input[type="text"]:not(:focus):not([value=""])::-webkit-input-placeholder{
     color: #388e3c;
     transition: all 10000000s, font-size 0.2s, top 0.2s, color 0.5s, font-weight 0.2s;
 }
-input[type="email"]:not(:focus):invalid:not([value=""]),
+/*input[type="datetime-local"]:not(:focus):invalid:not([value=""]),*/
 input[type="text"]:not(:focus):invalid:not([value=""]) {
     color: #f44336;
     box-shadow: 0 304px 0 -300px rgba(63,81,181,0), 0 2px 0 0 #fff, 0 4px 0 0 #f44336;
 }
-input[type="email"]:not(:focus):invalid:not([value=""])::-webkit-input-placeholder,
+/*input[type="datetime-local"]:not(:focus):invalid:not([value=""])::-webkit-input-placeholder,*/
 input[type="text"]:not(:focus):invalid:not([value=""])::-webkit-input-placeholder{
     color: #f44336;
 }
