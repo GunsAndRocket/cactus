@@ -37,7 +37,7 @@ QB.createSession(QBUser, function(err, result){
             // image loading
 
             var inputFile = $("input[type=file]")[0].files[0];
-            $('<span>' + inputFile.name + '</span>').appendTo('.filename');
+            // $('<span>' + inputFile.name + '</span>').appendTo('.filename');
             console.log(inputFile);
 
             // upload image
@@ -84,7 +84,7 @@ function addNewPost(eventName, tag, organiser, description, startDate, vkLink, p
             console.log(err);
         } else {
             console.log(res);
-
+            
             // $("#load-img").delay(1000).fadeOut(1000);
             // $('#myModal').modal('hide');
             $('#text').val('');
@@ -94,7 +94,7 @@ function addNewPost(eventName, tag, organiser, description, startDate, vkLink, p
             $('#place').val('');
             $('#organiser').val('');
             $('#vkLink').val('');
-
+            
             var params = {
                 notification_type: 'push',
                 user: {tags: {any: [tag]}},
