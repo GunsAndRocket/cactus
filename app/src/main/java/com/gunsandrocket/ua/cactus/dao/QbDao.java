@@ -22,6 +22,7 @@ import com.quickblox.users.model.QBUser;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import rx.*;
@@ -87,8 +88,10 @@ public class QbDao {
         SharedPreferences prefs = context.getSharedPreferences(
                 context.getResources().getString(R.string.tags_list), Context.MODE_PRIVATE);
         Set<String> tags = prefs.getStringSet(context.getResources().getString(R.string.tags_list), null);
-        if(tags == null)
-            return null;
+        if(tags == null) {
+            tags = new HashSet<String>();
+            tags.add("no_tag");
+        }
 
         requestBuilder.in("tag", tags.toArray());
 
@@ -159,26 +162,27 @@ public class QbDao {
                 e.printStackTrace();
             }
             ArrayList<Event> events = new ArrayList<Event>();
-            for (QBCustomObject co : customObjects) {
-                Date startDate = null;
-                try {
-                    startDate = co.getDate("startDate", null);
-                } catch (ParseException e) {
-                    Log.d("TAG", "Bad date");
-                }
-                Integer followers = 0;
-                try {
-                    followers = co.getInteger("followers");
-                }catch (NumberFormatException e){
-                    followers = 0;
-                }
+            if(customObjects != null)
+                for (QBCustomObject co : customObjects) {
+                    Date startDate = null;
+                    try {
+                        startDate = co.getDate("startDate", null);
+                    } catch (ParseException e) {
+                        Log.d("TAG", "Bad date");
+                    }
+                    Integer followers = 0;
+                    try {
+                        followers = co.getInteger("followers");
+                    }catch (NumberFormatException e){
+                        followers = 0;
+                    }
 
 
-                    Event event = new Event(co.getString("tag"), co.getString("organiser"), co.getString("name"),
-                            co.getString("description"), startDate,
-                            co.getString("vkLink"), co.getString("place"), followers,
-                            co.getCreatedAt(), co.getString("image_url"));
-                    events.add(event);
+                        Event event = new Event(co.getString("tag"), co.getString("organiser"), co.getString("name"),
+                                co.getString("description"), startDate,
+                                co.getString("vkLink"), co.getString("place"), followers,
+                                co.getCreatedAt(), co.getString("image_url"));
+                        events.add(event);
 
                 }
 
