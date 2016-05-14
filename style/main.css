@@ -149,15 +149,15 @@ input[type="datetime-local"] {
     border: 0;
     background: rgba(0, 0, 0, 0);
     outline: 0;
-    width: 200px;
+    width: 270px;
     /*height: 0px;*/
     /*margin: 0px 10px 20px -8px;*/
-    margin-left: 375px;
+    margin-left: 310px;
     padding: 15px 8px 4px;
     transition: all 0.2s;
     color: #424242;
     box-shadow: 0 304px 0 -300px rgba(33, 150, 243, 0), 0 2px 0 0 #fff, 0 4px 0 0 #757575;
-    font-size: 12px;
+    font-size: 18px;
 }
 
 input[type="datetime-local"]:focus {

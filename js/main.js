@@ -5,7 +5,7 @@ QB.init(QBApp.appId, QBApp.authKey, QBApp.authSecret, true);
 
 // Create session
 var filter = {sort_asc: 'created_at'};
-QB.createSession(QBUser, function(err, result){
+QB.createSession(QBUser, function (err, result) {
     if (err) {
         console.log('Something went wrong: ' + err);
     } else {
@@ -15,7 +15,7 @@ QB.createSession(QBUser, function(err, result){
 
         $("#upload").change(function () {
             // image extension validation
-            var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+            var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".png"];
             var sFileName = $("input[type=file]")[0].value;
             if (sFileName.length > 0) {
                 var blnValid = false;
@@ -28,7 +28,7 @@ QB.createSession(QBUser, function(err, result){
                 }
 
                 if (!blnValid) {
-                    alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                    alert("Sorry, allowed extensions are: " + _validFileExtensions.join(", "));
                     return false;
                 }
             }
@@ -43,7 +43,7 @@ QB.createSession(QBUser, function(err, result){
             }
         });
 
-        $('#send_post').click(function(e) {
+        $('#send_post').click(function (e) {
             e.preventDefault();
 
             var eventName = $('#text').val();
@@ -60,7 +60,13 @@ QB.createSession(QBUser, function(err, result){
             console.log(inputFile);
 
             // upload image
-            QB.content.createAndUpload({name: inputFile.name, file: inputFile, type: inputFile.type, size: inputFile.size, 'public': false}, function(err, response){
+            QB.content.createAndUpload({
+                name: inputFile.name,
+                file: inputFile,
+                type: inputFile.type,
+                size: inputFile.size,
+                'public': false
+            }, function (err, response) {
                 if (err) {
                     console.log(err);
                 } else {
@@ -78,26 +84,23 @@ QB.createSession(QBUser, function(err, result){
                     }
                 }
             });
-
-
-
-
+            
         });
     }
 });
 
 function addNewPost(eventName, tag, organiser, description, startDate, vkLink, place, image_url) {
     QB.data.create("Events", {
-            tag: tag,
-            name: eventName,
-            organiser: organiser,
-            description: description,
-            startDate: startDate,
-            vkLink: vkLink,
-            place: place,
-            followers: 0,
-            image_url: image_url
-        }, function(err, res){
+        tag: tag,
+        name: eventName,
+        organiser: organiser,
+        description: description,
+        startDate: startDate,
+        vkLink: vkLink,
+        place: place,
+        followers: 0,
+        image_url: image_url
+    }, function (err, res) {
         if (err) {
             console.log(err);
         } else {
@@ -118,14 +121,14 @@ function addNewPost(eventName, tag, organiser, description, startDate, vkLink, p
                 message: QB.pushnotifications.base64Encode("Hey, guys, let's go smoking")
             };
 
-            QB.pushnotifications.events.create(params, function(err, response) {
+            QB.pushnotifications.events.create(params, function (err, response) {
                 if (err) {
                     console.log(err);
                 } else {
                     // success
                 }
             });
-            
+
         }
     });
 }
