@@ -28,7 +28,6 @@ QB.createSession(QBUser, function(err, result){
                 }
 
                 if (!blnValid) {
-                    console.log("ALALLALAL")
                     alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
                     return false;
                 }
