@@ -5,18 +5,26 @@
 </head>
 <body>
 <div class="header">
-    <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Transparent_google_logo.png/250px-Transparent_google_logo.png" height="48px" />
-    <h1>One account. All of Google.</h1>
+
+    <!--<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Transparent_google_logo.png/250px-Transparent_google_logo.png" height="48px" />-->
+    <h1>Hello from Events</h1>
 </div>
 <form>
-    <div class="profile">
-        <img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" height="96px" />
-        <h3>Sign in to continue to Gmail</h3>
-    </div>
-
+    <!--<div class="profile">-->
+        <!--<img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" height="96px" />-->
+        <!--<h3>Sign in to continue to Gmail</h3>-->
+    <!--</div>-->
+    <!--<div>-->
     <!--<input id="email" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z0-1]{2,24}$" placeholder="Email" required="" style="opacity: .999;" type="email" value="" />-->
+    <!--</div>-->
+    <input id="text" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}" placeholder="Name of Event" autocomplete="off" required="" type="text" value="" />
+    <input id="tag" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}" placeholder="TAG" autocomplete="off" required="" type="text" value="" />
+    <input id="organiser" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}" placeholder="organiser" autocomplete="off" required="" type="text" value="" />
+    <input id="description" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}" placeholder="description" autocomplete="off" required="" type="textarea" value="" />
+    <input id="startDate" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}" placeholder="startDate" autocomplete="off" required="" type="datetime" value="" />
+    <input id="vkLink" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}" placeholder="vkLink" autocomplete="off" required="" type="text" value="" />
+    <input id="place" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}" placeholder="place" autocomplete="off" required="" type="text" value="" />
 
-    <!--<input id="password" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{8,}" placeholder="Password" required="" type="password" value="" />-->
     <!--<label for="password">-->
         <!--<a href="#">Forgot Password?</a>-->
     <!--</label>-->
@@ -25,7 +33,7 @@
     <input type="checkbox" id="checkbox" />
     <label for="checkbox">Stay signed in</label>
     <br />
-    <label><a href="#">Need an Account?</a></label>
+    <!--<label><a href="#">Need an Account?</a></label>-->
     <input type="submit" value="Submit" />
 </form>
 </body>
