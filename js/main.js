@@ -11,60 +11,97 @@ QB.createSession(QBUser, function(err, result){
     } else {
         console.log('Session created with id ' + result.id);
         // Get all posts
-        getAllPosts();
+        // getAllPosts();
 
         $('#send_post').click(function(e) {
             e.preventDefault();
 
-            var textTitle = $('#title_post')[0].value;
-            textBody = $('#body_post').val();
+            var eventName = $('#text').val();
+            var tag = $('#tag').val();
+            var organiser = $('#organiser').val();
+            var description = $('#description').val();
+            var startDate = $('#startDate').val();
+            var vkLink = $('#vkLink').val();
+            var place = $('#place').val();
             // Adds a new post
-            if (textTitle && textBody) {
-                $("#load-img").show(0);
-                addNewPost(textTitle, textBody);
+            if (eventName && tag && organiser && description && startDate &&  vkLink && place) {
+                // $("#load-img").show(0);
+                addNewPost(eventName, tag, organiser, description, startDate, vkLink, place);
             } else {
-                alert('Please complete all required fields')
+                alert('Please complete all required fields');
             }
         });
     }
 });
 
-function getAllPosts() {
-    QB.data.list("Blog", filter, function(err, result){
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(result);
+// function getAllPosts() {
+//     QB.data.list("Blog", filter, function(err, result){
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log(result);
+//
+//             for (var i=0; i < result.items.length; i++) {
+//                 var item = result.items[result.items.length-i-1];
+//                 showPost(item.title, item.body, false);
+//             }
+//         }
+//     });
+// }
 
-            for (var i=0; i < result.items.length; i++) {
-                var item = result.items[result.items.length-i-1];
-                showPost(item.title, item.body, false);
-            }
-        }
-    });
-}
-
-function addNewPost(textTitle, textBody) {
-    QB.data.create("Blog", {title: textTitle, body: textBody}, function(err, res){
+function addNewPost(eventName, tag, organiser, description, startDate, vkLink, place) {
+    QB.data.create("Events", {
+            tag: tag,
+            name: eventName,
+            organiser: organiser,
+            description: description,
+            startDate: startDate,
+            vkLink: vkLink,
+            place: place
+        }, function(err, res){
         if (err) {
             console.log(err);
         } else {
             console.log(res);
 
-            $("#load-img").delay(1000).fadeOut(1000);
-            $('#myModal').modal('hide');
-            $('#title_post').val('');
-            $('#body_post').val('');
+            // $("#load-img").delay(1000).fadeOut(1000);
+            // $('#myModal').modal('hide');
+            $('#text').val('');
+            $('#tag').val('');
+            $('#description').val('');
+            $('#startDate').val('');
+            $('#place').val('');
+            $('#organiser').val('');
+            $('#vkLink').val('');
 
-            QB.data.list("Blog", filter, function(err, result){
-                if (err) {
-                    console.log(err);
-                } else {
-                    console.log(result);
-
-                    showPost(textTitle, textBody, true);
-                }
-            });
+            // QB.data.list("Blog", filter, function(err, result){
+            //     if (err) {
+            //         console.log(err);
+            //     } else {
+            //         console.log(result);
+            //
+            //         showPost(textTitle, textBody, true);
+            //     }
+            // });
         }
     });
 }
+
+$('#send_post').click(function(e) {
+    e.preventDefault();
+
+    var eventName = $('#text').val();
+    var tag = $('#tag').val();
+    var organiser = $('#organiser').val();
+    var description = $('#description').val();
+    var startDate = $('#startDate').val();
+    var vkLink = $('#vkLink').val();
+    var place = $('#place').val();
+    // Adds a new post
+    if (eventName && tag && organiser && description && startDate &&  vkLink && place) {
+        // $("#load-img").show(0);
+        addNewPost(eventName, tag, organiser, description, startDate, vkLink, place);
+    } else {
+        alert('Please complete all required fields');
+    }
+});
