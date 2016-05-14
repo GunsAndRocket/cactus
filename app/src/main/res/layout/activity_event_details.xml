@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="com.gunsandrocket.ua.cactus.model.Event" />
+        <import type="com.gunsandrocket.ua.cactus.util.ViewUtils" />
+        <import type="android.view.View" />
+        <variable
+            name="event"
+            type="Event" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:fitsSystemWindows="true">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/event_details_image_height"
+                    android:scaleType="centerCrop"
+                    android:src="@color/light_grey"
+                    app:layout_collapseMode="parallax"/>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay">
+                </android.support.v7.widget.Toolbar>
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:fitsSystemWindows="true"
+                    android:background="@color/colorPrimary"
+                    style="@style/Widget.EventHeader">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        android:gravity="center"
+                        android:text="@{event.name}"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@{event.tag}"
+                            android:layout_marginRight="@dimen/text_margin"
+                            android:layout_marginEnd="@dimen/text_margin"
+                            style="@style/TextAppearance.AppCompat.Small.Inverse"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@{ViewUtils.getFollowersString(event.followers, @string/followers)}"
+                            style="@style/TextAppearance.AppCompat.Small.Inverse"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Content">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:text="@{event.description}"
+                        style="@style/TextAppearance.AppCompat.Small.Inverse" />
+
+                    <TextView
+                        android:text="@{@string/event_place + ':'}"
+                        style="@style/HeaderText" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{event.place}"
+                        style="@style/TextAppearance.AppCompat.Small.Inverse" />
+
+                    <TextView
+                        android:text="@{@string/event_date + ':'}"
+                        style="@style/HeaderText" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{event.startDate.toString()}"
+                        style="@style/TextAppearance.AppCompat.Small.Inverse" />
+
+                    <TextView
+                        android:text="@{@string/event_contacts + ':'}"
+                        style="@style/HeaderText" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{event.organiser}"
+                        style="@style/TextAppearance.AppCompat.Small.Inverse" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/ic_plus_one_white_18dp"
+            app:layout_anchor="@id/appbar"
+            app:layout_anchorGravity="bottom|right|end"/>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

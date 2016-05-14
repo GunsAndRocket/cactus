@@ -9,6 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
+import com.gunsandrocket.ua.cactus.R;
+import com.gunsandrocket.ua.cactus.dao.QbDao;
+import com.gunsandrocket.ua.cactus.notifications.QBPusher;
+import com.gunsandrocket.ua.cactus.util.LocalSaver;
+import com.gunsandrocket.ua.cactus.util.VkLinker;
 import com.quickblox.auth.model.QBSession;
 import com.quickblox.core.QBEntityCallback;
 import com.quickblox.core.exception.QBResponseException;
@@ -24,11 +29,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 import rx.Subscriber;
-import ua.gunsandrocket.kpievents.R;
-import ua.gunsandrocket.kpievents.dao.QbDao;
-import ua.gunsandrocket.kpievents.notifications.QBPusher;
-import ua.gunsandrocket.kpievents.util.LocalSaver;
-import ua.gunsandrocket.kpievents.util.VkLinker;
+
 
 /**
  * Created by dmytro on 03.04.16.

@@ -60,6 +60,13 @@
 
 
 
+
+        <activity android:name=".activity.EventDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+
+        </activity>
+
+
     </application>
 
     <!-- 4. Declare and use a custom permission so only this application can receive GCM messages.

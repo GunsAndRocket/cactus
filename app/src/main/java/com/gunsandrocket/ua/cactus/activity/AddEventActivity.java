@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.gunsandrocket.ua.cactus.R;
+import com.gunsandrocket.ua.cactus.dao.QbDao;
+import com.gunsandrocket.ua.cactus.model.Event;
+import com.gunsandrocket.ua.cactus.notifications.QBPusher;
 import com.quickblox.content.QBContent;
 import com.quickblox.content.model.QBFile;
 import com.quickblox.core.QBEntityCallback;
@@ -24,12 +28,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import ua.gunsandrocket.kpievents.R;
-import ua.gunsandrocket.kpievents.dao.QbDao;
-import ua.gunsandrocket.kpievents.model.Event;
-import ua.gunsandrocket.kpievents.notifications.QBPusher;
 
 /**
  * Created by dmytro on 18.04.16.
@@ -39,23 +37,23 @@ public class AddEventActivity extends Activity {
     private int PICK_PHOTO = 1;
 
 
-    @Bind(R.id.btn_add_event)
+//    @Bind(R.id.btn_add_event)
     Button btnAddEvent;
-    @Bind(R.id.et_name)
+//    @Bind(R.id.et_name)
     EditText etName;
-    @Bind(R.id.et_descr)
+//    @Bind(R.id.et_descr)
     EditText etDescr;
-    @Bind(R.id.et_start_date)
+//    @Bind(R.id.et_start_date)
     EditText etStartDate;
-    @Bind(R.id.et_vk_link)
+//    @Bind(R.id.et_vk_link)
     EditText etVkLink;
-    @Bind(R.id.et_place)
+//    @Bind(R.id.et_place)
     EditText etPlace;
-    @Bind(R.id.et_tag)
+//    @Bind(R.id.et_tag)
     EditText etTag;
-    @Bind(R.id.et_org)
+//    @Bind(R.id.et_org)
     EditText etOrg;
-    @Bind(R.id.btn_pick)
+//    @Bind(R.id.btn_pick)
     Button btn_pick;
 
     InputStream inputPhotoStream;
@@ -64,7 +62,16 @@ public class AddEventActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_event);
-        ButterKnife.bind(this);
+        //ButterKnife.bind(this);
+        btnAddEvent = (Button)findViewById(R.id.btn_add_event);
+        btn_pick = (Button)findViewById(R.id.btn_pick);
+        etName = (EditText)findViewById(R.id.et_name);
+        etDescr = (EditText)findViewById(R.id.et_descr);
+        etStartDate = (EditText)findViewById(R.id.et_start_date);
+        etVkLink = (EditText)findViewById(R.id.et_vk_link);
+        etPlace = (EditText)findViewById(R.id.et_place);
+        etTag = (EditText)findViewById(R.id.et_tag);
+        etOrg = (EditText)findViewById(R.id.et_org);
 
         btn_pick.setOnClickListener(new View.OnClickListener() {
             @Override

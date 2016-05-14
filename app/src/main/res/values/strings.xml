@@ -12,6 +12,7 @@
     <string name="sport_categorie">sport</string>
     <string name="events">events</string>
 
+
     <integer name="com_vk_sdk_AppId">5379550</integer>
 
     <string name="QB_APP_ID">37788</string>
@@ -23,4 +24,10 @@
     <string name="tags_list">tagsList</string>
 
     <string name="tag">TAG</string>
+
+    <string name="followers">followers</string>
+    <string name="event_place">place</string>
+    <string name="event_date">date</string>
+    <string name="event_contacts">contacts</string>
+
 </resources>

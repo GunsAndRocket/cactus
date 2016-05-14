@@ -9,9 +9,6 @@ import com.gunsandrocket.ua.cactus.base.BaseViewHolder;
 import com.gunsandrocket.ua.cactus.databinding.EventsListItemBinding;
 import com.gunsandrocket.ua.cactus.model.Event;
 
-/**
- * Created by dnt on 5/14/16.
- */
 public class EventViewHolder extends BaseViewHolder<Event> {
 
     EventsListItemBinding binding;

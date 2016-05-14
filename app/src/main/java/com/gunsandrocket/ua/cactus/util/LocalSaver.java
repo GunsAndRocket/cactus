@@ -3,9 +3,11 @@ package com.gunsandrocket.ua.cactus.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.gunsandrocket.ua.cactus.R;
+
 import java.util.Set;
 
-import ua.gunsandrocket.kpievents.R;
+
 
 /**
  * Created by dmytro on 17.04.16.

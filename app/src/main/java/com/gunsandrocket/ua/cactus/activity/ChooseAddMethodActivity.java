@@ -6,23 +6,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import ua.gunsandrocket.kpievents.R;
+import com.gunsandrocket.ua.cactus.R;
+
 
 /**
  * Created by dmytro on 18.04.16.
  */
 public class ChooseAddMethodActivity extends Activity {
 
-    @Bind(R.id.btn_add)
+
     Button btnAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chose_method);
-        ButterKnife.bind(this);
+        btnAdd = (Button)findViewById(R.id.btn_add);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

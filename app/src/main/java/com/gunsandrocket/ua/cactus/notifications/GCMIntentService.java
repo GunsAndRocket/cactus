@@ -12,9 +12,8 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
-
-import ua.gunsandrocket.kpievents.R;
-import ua.gunsandrocket.kpievents.activity.MainActivity;
+import com.gunsandrocket.ua.cactus.R;
+import com.gunsandrocket.ua.cactus.activity.MainActivity;
 
 
 /**
