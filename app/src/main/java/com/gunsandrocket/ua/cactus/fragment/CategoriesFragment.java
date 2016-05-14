@@ -6,14 +6,15 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.gunsandrocket.ua.cactus.R;
 import com.gunsandrocket.ua.cactus.base.BaseFragment;
-import com.gunsandrocket.ua.cactus.base.BasePlaceholderFragment;
 import com.gunsandrocket.ua.cactus.databinding.FragmentCategoriesBinding;
+import com.gunsandrocket.ua.cactus.databinding.FragmentListBinding;
 
 public class CategoriesFragment extends BaseFragment {
 
@@ -30,11 +31,33 @@ public class CategoriesFragment extends BaseFragment {
         return binding.getRoot();
     }
 
-    public static class PlaceholderFragment extends BasePlaceholderFragment {
+    public static class PlaceholderFragment extends Fragment {
+
+        protected FragmentListBinding binding;
+
+        public static final String ARG_SECTION_NUMBER = "section_number";
 
         public static final int SECTION_SCIENCE = 0;
         public static final int SECTION_ENTERTAINMENT = 1;
         public static final int SECTION_SPORT = 2;
+
+        public static PlaceholderFragment newInstance(int sectionNumber) {
+            PlaceholderFragment fragment = new PlaceholderFragment();
+            Bundle args = new Bundle();
+            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+
+            binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false);
+
+            Log.d("TAG", "in BPF.onCreateView");
+            return binding.getRoot();
+        }
 
         @Override
         public void onActivityCreated(@Nullable Bundle savedInstanceState) {

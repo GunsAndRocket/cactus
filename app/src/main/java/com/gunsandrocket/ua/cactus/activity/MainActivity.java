@@ -33,29 +33,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupNavigationView(NavigationView nav, final DrawerLayout drawer) {
-        nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
-                drawer.closeDrawers();
-                switch (item.getItemId()) {
-                    case R.id.menu_item_main:
-                        changeFragment(R.id.container, new FeedFragment());
-                        break;
+        nav.setNavigationItemSelectedListener(item -> {
+            drawer.closeDrawers();
+            switch (item.getItemId()) {
+                case R.id.menu_item_main:
+                    changeFragment(R.id.container, new FeedFragment());
+                    break;
 
-                    case R.id.menu_item_categories:
-                        changeFragment(R.id.container, new CategoriesFragment());
-                        break;
+                case R.id.menu_item_categories:
+                    changeFragment(R.id.container, new CategoriesFragment());
+                    break;
 
-                    case R.id.menu_item_subscriptions:
-                        //start subscriptions
-                        break;
+                case R.id.menu_item_subscriptions:
+                    //start subscriptions
+                    break;
 
-                    case R.id.menu_item_settings:
-                        //start settings
-                        break;
-                }
-                return true;
+                case R.id.menu_item_settings:
+                    //start settings
+                    break;
             }
+            return true;
         });
     }
 
