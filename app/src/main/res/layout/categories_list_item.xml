@@ -23,7 +23,6 @@
             android:layout_height="wrap_content"
             android:lines="@integer/category_title_line_count"
             android:maxLines="@integer/category_title_line_count"
-            android:text="@string/category_title_example"
             style="@style/TextAppearance.AppCompat.Title" />
 
         <LinearLayout
@@ -35,7 +34,6 @@
                 android:id="@+id/categories_item_events_count"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/events_count_example"
                 android:layout_marginRight="@dimen/text_margin"
                 android:layout_marginEnd="@dimen/text_margin"
                 style="@style/OneLineText"/>

@@ -3,7 +3,7 @@
     <data>
         <variable
             name="event"
-            type=".model.Event" />
+            type="com.gunsandrocket.ua.cactus.model.Event" />
     </data>
 
     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
