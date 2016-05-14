@@ -14,6 +14,26 @@ QB.createSession(QBUser, function(err, result){
         // getAllPosts();
 
         $("#upload").change(function () {
+            // image extension validation
+            var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+            var sFileName = $("input[type=file]")[0].value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions.length; j++) {
+                    var sCurExtension = _validFileExtensions[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+                }
+
+                if (!blnValid) {
+                    alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                    return false;
+                }
+            }
+
+            // image name output
             var file = $("input[type=file]")[0].files[0];
             if (file !== null) {
                 if ($('.filename').val() !== null) {
@@ -37,7 +57,6 @@ QB.createSession(QBUser, function(err, result){
             // image loading
 
             var inputFile = $("input[type=file]")[0].files[0];
-            $('<span>' + inputFile.name + '</span>').appendTo('.filename');
             console.log(inputFile);
 
             // upload image
@@ -53,7 +72,6 @@ QB.createSession(QBUser, function(err, result){
 
                     // Adds a new post
                     if (eventName && tag && organiser && description && startDate && vkLink && place && image_url) {
-                        // $("#load-img").show(0);
                         addNewPost(eventName, tag, organiser, description, startDate, vkLink, place, image_url);
                     } else {
                         alert('Please complete all required fields');
@@ -85,8 +103,6 @@ function addNewPost(eventName, tag, organiser, description, startDate, vkLink, p
         } else {
             console.log(res);
 
-            // $("#load-img").delay(1000).fadeOut(1000);
-            // $('#myModal').modal('hide');
             $('#text').val('');
             $('#tag').val('');
             $('#description').val('');
