@@ -1,55 +1,36 @@
-<html>
+<html ng-app="IndexApp">
 <head>
-    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="//cdn.muicss.com/mui-0.5.8/css/mui.css">
+    <link rel="stylesheet" type="text/css" href="style/index_style.css">
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
-<body>
-<div class="header">
-    <h1>Hello Events :)</h1>
+<body ng-controller="AppCtrl" >
+<button class="mui-btn mui-btn--fab mui-btn--danger" onclick="location.href = 'add-event.html';" style="bottom: 45px; right: 20px; position: fixed">+</button>
+<div class="header" >
+    <h1>Events</h1>
 </div>
-<form>
-
-    <input id="text" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern="{2,50}"
-           placeholder="Name of Event" autocomplete="off" required="" type="text" value=""/>
-    <input id="tag" onkeyup="this.setAttribute(&#39;value&#39;, this.value);"
-           pattern="{2,25}" placeholder="Tag"
-           autocomplete="off" required="" type="text" value=""/>
-
-    <input id="organiser" onkeyup="this.setAttribute(&#39;value&#39;, this.value);"
-           pattern="{2,50}"
-           placeholder="Organiser" autocomplete="off" required="" type="text" value=""/>
-    <textarea id="description" type="text" placeholder="Description" required=""></textarea>
-
-    <div style="margin-bottom: 20px" onsubmit="return Validate(this);">
-        <label for="upload">
-            <span id="loadimage" aria-hidden="true">Load image</span>
-            <input type="file" id="upload" style="display:none">
-        </label>
-        <input id="startDate"
-               placeholder="StartDate" autocomplete="off" required="" type="datetime-local" value=""/>
-        <p class="filename" id="text_loadimg"></p>
+<form ng-repeat="i in [1,2,3]">
+    <div class="thumb1" style="background: url({{imagePath}}) 50% 50% no-repeat; width: 100%;
+    height: 250px;">
     </div>
-    <input id="vkLink" onkeyup="this.setAttribute(&#39;value&#39;, this.value);"
-           placeholder="Vk-link"
-           autocomplete="off" type="text" value=""/>
-    <input id="place" onkeyup="this.setAttribute(&#39;value&#39;, this.value);"
-           pattern="[a-zA-Z0-1]{2,50}" placeholder="Place"
-           autocomplete="off" required="" type="text" value=""/>
-
-    <br/><br/>
-
-
-    <br/>
-
-
-    <div class="g-recaptcha" id="capthca" data-sitekey="6LcK5h8TAAAAAEqRX9kbU6iGWHeJdbZz6IeO2Q4X"></div>
-    <button class="button" id="send_post">Submit1</button>
-
+    <h1 style="text-align: left; margin-left: 10px">Privet Bratan</h1>
+    <h2 style="text-align: left; margin-left: 10px">atatatatatatatatatatatatatatt
+    tatatata
+    tatat
+    atatatt</h2>
+    <!--<img src="{{imagePath}}" height="20%" width="100%">-->
 </form>
+<!--<form  class="inline" >-->
+
+<!--</form>-->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="js/quickblox.min.js"></script>
-<script src="js/config.js"></script>
+<script src="js/angIndex.js"></script>
 <script src="js/main.js"></script>
+<!--<script src="js/config.js"></script>-->
+<!--<script src="js/main.js"></script>-->
 </body>
 </html>
