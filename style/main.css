@@ -171,8 +171,6 @@ input[type="datetime-local"]::-webkit-input-placeholder {
     color: #757575;
 }
 
-input[type="email"],
-input[type="email"],
 input[type="text"] {
     border: 0;
     background: rgba(0, 0, 0, 0);
