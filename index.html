@@ -29,19 +29,20 @@
     <!--<input id="" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern=".{5,}" placeholder="Description" autocomplete="off" required="" type="textarea" value="" />-->
 
     <!--<span class="button">-->
-        <!--<input id="photo"-->
-               <!--pattern="[a-z0-9._%+-][a-z0-9.-]+\.[a-zA-Z0-1]{2,50}" placeholder="photo-url"-->
-               <!--required="" type="file" value=""/>-->
+    <!--<input id="photo"-->
+    <!--pattern="[a-z0-9._%+-][a-z0-9.-]+\.[a-zA-Z0-1]{2,50}" placeholder="photo-url"-->
+    <!--required="" type="file" value=""/>-->
     <!--</span>-->
     <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>-->
-    <label for="upload">
-        <span id="loadimage" aria-hidden="true">Load image</span>
-        <input type="file" id="upload" style="display:none">
-    </label>
-
-
-    <input id="startDate"
-           placeholder="StartDate" autocomplete="off" required="" type="datetime-local" value=""/>
+    <div style="margin-bottom: 20px" onsubmit="return Validate(this);">
+        <label for="upload">
+            <span id="loadimage" aria-hidden="true">Load image</span>
+            <input type="file" id="upload" style="display:none">
+        </label>
+        <input id="startDate"
+               placeholder="StartDate" autocomplete="off" required="" type="datetime-local" value=""/>
+        <p class="filename"></p>
+    </div>
     <input id="vkLink" onkeyup="this.setAttribute(&#39;value&#39;, this.value);"
            pattern="[a-zA-Z0-1]{2,50}" placeholder="Vk-link"
            autocomplete="off" required="" type="text" value=""/>
