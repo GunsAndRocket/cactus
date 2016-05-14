@@ -1,10 +1,12 @@
 <html ng-app="IndexApp">
 <head>
+    <link rel="stylesheet" type="text/css" media="screen" href="//cdn.muicss.com/mui-0.5.8/css/mui.css">
     <link rel="stylesheet" type="text/css" href="style/index_style.css">
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body ng-controller="AppCtrl" >
-<div class="header">
+<button class="mui-btn mui-btn--fab mui-btn--danger" onclick="location.href = 'add-event.html';" style="bottom: 45px; right: 20px; position: fixed">+</button>
+<div class="header" >
     <h1>Events</h1>
 </div>
 <form ng-repeat="i in [1,2,3]">
@@ -13,6 +15,10 @@
     </div>
     <!--<img src="{{imagePath}}" height="20%" width="100%">-->
 </form>
+<!--<form  class="inline" >-->
+
+<!--</form>-->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
