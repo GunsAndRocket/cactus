@@ -5,4 +5,6 @@
     <string name="menu_item_categories_title">Categories</string>
     <string name="menu_item_subscriptions_title">Subscriptions</string>
     <string name="action_about_us">About us</string>
+    <string name="all_events">all</string>
+    <string name="recommended_events">recommended</string>
 </resources>

@@ -8,8 +8,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".DrawerActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
+        <activity android:name=".activity.DrawerActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
