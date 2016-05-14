@@ -15,33 +15,33 @@ QB.createSession(QBUser, function(err, result){
 
         var image_url;
         // image loading
-        $("#upload").click(function(e){
-            e.preventDefault();
+        // $("#upload").click(function(e){
+        //     e.preventDefault();
+        //
+        //     var inputFile = $("input[type=file]")[0].files[0];
+        //     console.log(inputFile);
+        //     // if (inputFile) {
+        //     //     $("#progress").show(0);
+        //     // }
+        //
+        //     // upload image
+        //     QB.content.createAndUpload({name: inputFile.name, file: inputFile, type: inputFile.type, size: inputFile.size, 'public': false}, function(err, response){
+        //         if (err) {
+        //             console.log(err);
+        //         } else {
+        //             console.log(response);
+        //
+        //             // $("#progress").fadeOut(400);
+        //
+        //             var uploadedFile = response;
+        //
+        //             image_url = QB.content.privateUrl(uploadedFile.uid);
+        //             // showImage(uploadedFile.uid, uploadedFile.name, false);
+        //         }
+        //     });
+        // });
 
-            var inputFile = $("input[type=file]")[0].files[0];
-            console.log(inputFile);
-            // if (inputFile) {
-            //     $("#progress").show(0);
-            // }
-
-            // upload image
-            QB.content.createAndUpload({name: inputFile.name, file: inputFile, type: inputFile.type, size: inputFile.size, 'public': false}, function(err, response){
-                if (err) {
-                    console.log(err);
-                } else {
-                    console.log(response);
-
-                    // $("#progress").fadeOut(400);
-
-                    var uploadedFile = response;
-
-                    image_url = QB.content.privateUrl(uploadedFile.uid);
-                    // showImage(uploadedFile.uid, uploadedFile.name, false);
-                }
-            });
-        });
-
-        $('#send_post').click(function(e, image_url) {
+        $('#send_post').click(function(e) {
             e.preventDefault();
 
             var eventName = $('#text').val();
@@ -52,9 +52,9 @@ QB.createSession(QBUser, function(err, result){
             var vkLink = $('#vkLink').val();
             var place = $('#place').val();
             // Adds a new post
-            if (eventName && tag && organiser && description && startDate && vkLink && place && image_url) {
+            if (eventName && tag && organiser && description && startDate && vkLink && place) {
                 // $("#load-img").show(0);
-                addNewPost(eventName, tag, organiser, description, startDate, vkLink, place, image_url);
+                addNewPost(eventName, tag, organiser, description, startDate, vkLink, place);
             } else {
                 alert('Please complete all required fields');
             }
@@ -101,7 +101,7 @@ $("#upload").change(function() {
 // });
 
 
-function addNewPost(eventName, tag, organiser, description, startDate, vkLink, place, image_url) {
+function addNewPost(eventName, tag, organiser, description, startDate, vkLink, place) {
     QB.data.create("Events", {
             tag: tag,
             name: eventName,
@@ -110,8 +110,7 @@ function addNewPost(eventName, tag, organiser, description, startDate, vkLink, p
             startDate: startDate,
             vkLink: vkLink,
             place: place,
-            followers: 0,
-            image_url: image_url
+            followers: 0
         }, function(err, res){
         if (err) {
             console.log(err);
