@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_item_main"
+            android:title="@string/menu_item_main_title" />
+        <item
+            android:id="@+id/menu_item_categories"
+            android:title="@string/menu_item_categories_title" />
+        <item
+            android:id="@+id/menu_item_subscriptions"
+            android:title="@string/menu_item_subscriptions_title" />
+    </group>
+    <group android:id="@+id/addition_group"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_item_settings"
+            android:title="@string/action_settings" />
+        <item
+            android:id="@+id/menu_item_about_us"
+            android:title="@string/action_about_us" />
+    </group>
+</menu>

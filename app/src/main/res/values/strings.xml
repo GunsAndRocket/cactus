@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">KpiEvents</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_item_main_title">All</string>
+    <string name="menu_item_categories_title">Categories</string>
+    <string name="menu_item_subscriptions_title">Subscriptions</string>
+    <string name="action_about_us">About us</string>
+</resources>
