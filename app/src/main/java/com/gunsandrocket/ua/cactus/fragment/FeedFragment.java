@@ -1,5 +1,6 @@
 package com.gunsandrocket.ua.cactus.fragment;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,6 +15,8 @@ import android.view.ViewGroup;
 
 import com.gunsandrocket.ua.cactus.EventListAdapter;
 import com.gunsandrocket.ua.cactus.R;
+import com.gunsandrocket.ua.cactus.activity.ChooseAddMethodActivity;
+import com.gunsandrocket.ua.cactus.activity.MainActivity;
 import com.gunsandrocket.ua.cactus.base.BaseFragment;
 import com.gunsandrocket.ua.cactus.dao.QbDao;
 import com.gunsandrocket.ua.cactus.databinding.FragmentFeedBinding;
@@ -36,6 +39,13 @@ public class FeedFragment extends BaseFragment {
         binding.container.setAdapter(new SectionsPagerAdapter(getChildFragmentManager()));
         binding.tabs.setupWithViewPager(binding.container);
         activity.setSupportActionBar(binding.toolbar);
+        binding.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ChooseAddMethodActivity.class));
+                //finish();
+            }
+        });
 
         Log.d("TAG", "in FF.onCreateView");
         return binding.getRoot();
