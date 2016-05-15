@@ -290,7 +290,7 @@ input[type="submit"]:active {
     transition: all 0.3s, background-size 0.2s;
     background-repeat: no-repeat;
     position: relative;
-    z-index: 3;
+    z-index: 0;
 }
 
 #loadimage {
@@ -368,4 +368,59 @@ button:active {
 }
 .bootstrap-select.btn-group:not(.input-group-btn){
     margin-left: -15px;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    /*height: 100%; !* Full height *!*/
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    min-height: 500px;
+    /*height: inherit;*/
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.bootstrap-select > .dropdown-toggle{
+    z-index: 0;
+}
+.modal-content div{
+
+    position: relative;
+    margin: 10px auto;
+    width: 90%;
+
+}
+.modal-content div span{
+    float: right;
+    width: 80%;
+    position: relative;
+    margin-right: 10px;
+    margin: 10px auto;
 }

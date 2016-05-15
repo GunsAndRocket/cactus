@@ -12,10 +12,10 @@ QB.createSession(QBUser, function (err, result) {
         console.log('Session created with id ' + result.id);
         // Get all posts
         // $(document).delay(10000);
-        setTimeout(function() { $(".selectpicker").selectpicker(); }, 1000);
+        setTimeout(function () {
+            $(".selectpicker").selectpicker();
+        }, 1000);
         getAllTags();
-
-
 
 
         $("#upload").change(function () {
@@ -55,7 +55,7 @@ QB.createSession(QBUser, function (err, result) {
             var tag = $('.selectpicker').val();
             var organiser = $('#organiser').val();
             var description = $('#description').val();
-            var startDate = $('#startDate').val() +" "+$('#startTime').val();
+            var startDate = $('#startDate').val() + " " + $('#startTime').val();
             var vkLink = $('#vkLink').val();
             var place = $('#place').val();
 
@@ -100,7 +100,7 @@ function addNewPost(eventName, tag, organiser, description, startDate, vkLink, p
         name: eventName,
         organiser: organiser,
         description: description,
-        startDate: startDate ,
+        startDate: startDate,
         vkLink: vkLink,
         place: place,
         followers: 0,
@@ -140,14 +140,14 @@ function addNewPost(eventName, tag, organiser, description, startDate, vkLink, p
 }
 
 function getAllTags() {
-    QB.data.list("Tags", function(err, result){
+    QB.data.list("Tags", function (err, result) {
         if (err) {
             console.log(err);
         } else {
             console.log(result);
 
-            for (var i=0; i < result.items.length; i++) {
-                var item = result.items[result.items.length-i-1];
+            for (var i = 0; i < result.items.length; i++) {
+                var item = result.items[result.items.length - i - 1];
                 showTag(item.name, item.type, false);
             }
         }
@@ -165,4 +165,63 @@ function showTag(name, type, lastPost) {
         containerElement.append(postElement);
     }
     $(".selectpicker").selectpicker("refresh");
+}
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+var uplBtn = document.getElementById("uploadBtn");
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+function uploadFromVk() {
+    uplBtn.style.display = "none";
+    VK.init({
+        apiId: 5379550,
+
+    })
+    VK.Api.call('groups.get', {userId: 'uid', extended: 1, filter: 'events'}, function (data) {
+        // alert(data);
+        if (data.error) {
+            alert(data.error.error_msg);
+        } else {
+            modal.style.display = "block";
+            console.log(data);
+            for(i=1;i<=data.response[0];i++){
+                var divchik = $('<div onclick="selectedEvent('+
+                    data.response[i].gid+')"></div>').appendTo($('.modal-content'));
+
+                $('<img src="'+data.response[i].photo_medium+'">').appendTo(divchik);
+                $('<span>'+data.response[i].name+'</span>').appendTo(divchik);
+                // modal.appendChild('<img src="'+data.response[i].photo_medium+'" onclick="selectedEvent('+
+                //     data.response[i].gid+')">');
+            }
+        }
+    });
+}
+span.onclick = function() {
+    modal.style.display = "none";
+    uplBtn.style.display = "block";
+    $('.modal-content').html("");
+};
+window.onclick = function(event) {
+    if (event.target == modal) {
+        uplBtn.style.display = "block";
+        modal.style.display = "none";
+        $('.modal-content').html("");
+    }
+};
+function selectedEvent(eventId) {
+    VK.init({
+        apiId: 5379550,
+
+    })
+    VK.Api.call('groups.getById', {group_ids: eventId, extended: 1, filter: 'events'}, function (data) {
+        // alert(data);
+        if (data.error) {
+            alert(data.error.error_msg);
+        } else {
+            console.log(data);
+        }
+    });
 }
