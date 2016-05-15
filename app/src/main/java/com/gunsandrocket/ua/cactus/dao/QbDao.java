@@ -116,6 +116,24 @@ public class QbDao {
           .observeOn(AndroidSchedulers.mainThread());
     }
 
+    public Observable<Category> getSportCategories(){
+        return Observable.create((obj)->{
+            QBRequestGetBuilder requestBuilder = new QBRequestGetBuilder();
+            requestBuilder.eq("type", "Sport");
+            ArrayList<QBCustomObject> customObjects = null;
+            try {
+                customObjects =
+                        QBCustomObjects.getObjects("Events", requestBuilder, new Bundle());
+            } catch (QBResponseException e) {
+                e.printStackTrace();
+            }
+            List<Category> categories = new ArrayList<Category>();
+            ((Subscriber) obj).onNext(categories);
+            ((Subscriber) obj).onCompleted();
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
     public Observable setUserTags(ArrayList<String> tags){
         return Observable.create((obj)->{
             LocalSaver localSaver = new LocalSaver(context);
