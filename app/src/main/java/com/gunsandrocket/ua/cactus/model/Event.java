@@ -1,11 +1,14 @@
 package com.gunsandrocket.ua.cactus.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by dnt on 5/14/16.
  */
-public class Event {
+public class Event implements Serializable {
+    public static String EVENT = "event";
+
     private String tag;
     private String organiser;
     private String name;

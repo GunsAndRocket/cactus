@@ -13,7 +13,11 @@ import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.gunsandrocket.ua.cactus.R;
+import com.gunsandrocket.ua.cactus.activity.EventDetailsActivity;
 import com.gunsandrocket.ua.cactus.activity.MainActivity;
+import com.gunsandrocket.ua.cactus.model.Event;
+
+import java.util.Date;
 
 
 /**
@@ -73,7 +77,19 @@ public class GCMIntentService extends IntentService {
 
         final String messageValue = extras.getString("message");
 
-        Intent intent = new Intent(this, MainActivity.class);
+        String name = extras.getString("name");
+        String descr = extras.getString("descr");
+        String tag = extras.getString("tag");
+        String organiser = extras.getString("organiser");
+        String vkLink = extras.getString("vkLink");
+        String place = extras.getString("place");
+        Date startDate = (Date)extras.get("startDate");
+        String imageUrl = extras.getString("imageUrl");
+        Integer followers = extras.getInt("followers");
+        Event event = new Event(tag, organiser, name, descr, startDate, vkLink, place, followers, null, imageUrl);
+
+        Intent intent = new Intent(this, EventDetailsActivity.class);
+        intent.putExtra(Event.EVENT, event);
 
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, 0);
 

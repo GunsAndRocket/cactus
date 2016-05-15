@@ -48,6 +48,17 @@ public class QBPusher {
         HashMap<String, Object> data = new HashMap<String, Object>();
         data.put("data.message", newEvent.getName());
         data.put("data.type", "welcome message");
+
+        data.put("data.name", newEvent.getName());
+        data.put("data.descr", newEvent.getDescription());
+        data.put("data.tag", newEvent.getTag());
+        data.put("data.organiser", newEvent.getOrganiser());
+        data.put("data.vkLink", newEvent.getVkLink());
+        data.put("data.place", newEvent.getPlace());
+        data.put("data.startDate", newEvent.getStartDate());
+        data.put("data.imageUrl", newEvent.getImageUrl());
+        data.put("data.followers", newEvent.getFollowers());
+
         event.setMessage(data);
 
         QBPushNotifications.createEvent(event, callback);
