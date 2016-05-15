@@ -58,15 +58,32 @@ public class StartActivity extends Activity {
                 public void onSuccess(QBSession qbSession, Bundle bundle) {
                     Log.d(getString(R.string.tag), "Success login");
 
+                    localSaver.saveUserId(localSaver.getUserId());
+                    dao.getUserTags().subscribe(new Subscriber<ArrayList<String>>() {
+                        @Override
+                        public void onCompleted() {
+                            QBPusher pusher = new QBPusher(StartActivity.this);
+                            pusher.subscribeToPushNotifications();
 
-                    QBPusher pusher = new QBPusher(StartActivity.this);
-                    pusher.subscribeToPushNotifications();
+
+                            //add property for go to 'recommended events' tab
+                            startActivity(new Intent(StartActivity.this, MainActivity.class));
+                            finish();
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+
+                        }
+
+                        @Override
+                        public void onNext(ArrayList<String> tags) {
+                            localSaver.setTags(new HashSet<String>(tags));
+                        }
+                    });
 
 
-                    //add property for go to 'recommended events' tab
-                    startActivity(new Intent(StartActivity.this, MainActivity.class)
-                            .setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
-                    finish();
+
                 }
 
                 @Override

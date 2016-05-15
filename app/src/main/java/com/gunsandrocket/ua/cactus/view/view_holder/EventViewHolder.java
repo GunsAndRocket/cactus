@@ -24,6 +24,6 @@ public class EventViewHolder extends BaseViewHolder<Event> {
         binding.setEvent(item);
         binding.eventsListItem
                 .setOnClickListener(view -> activity
-                        .startActivity(new Intent(activity, EventDetailsActivity.class)));
+                        .startActivity(new Intent(activity, EventDetailsActivity.class).putExtra(Event.EVENT, item)));
     }
 }

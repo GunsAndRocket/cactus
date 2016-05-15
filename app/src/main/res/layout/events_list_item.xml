@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <import type="com.gunsandrocket.ua.cactus.util.ViewUtils" />
         <variable
             name="event"
             type="com.gunsandrocket.ua.cactus.model.Event" />
@@ -22,7 +23,9 @@
             <ImageView
                 android:id="@+id/item_image"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/item_image_height" />
+                android:layout_height="@dimen/item_image_height"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{event.imageUrl}"/>
             <!--android:src="@drawable/example_image"-->
 
             <LinearLayout

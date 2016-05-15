@@ -52,5 +52,6 @@ dependencies {
     compile 'com.google.android.gms:play-services:7.8.0'
 
     compile files('libs/quickblox-android-sdk-core-2.5.1.jar')
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
  

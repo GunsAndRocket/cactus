@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="java.util.String" />
+        <variable
+            name="category"
+            type="com.gunsandrocket.ua.cactus.model.Category" />
+    </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -13,7 +19,9 @@
         <ImageView
             android:id="@+id/categories_item_image"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/item_image_height" />
+            android:layout_height="@dimen/item_image_height"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{category.imageUrl}"/>
 
         <LinearLayout
             android:orientation="vertical"
@@ -27,6 +35,7 @@
                 android:layout_height="wrap_content"
                 android:lines="@integer/category_title_line_count"
                 android:maxLines="@integer/category_title_line_count"
+                android:text="@{category.name}"
                 style="@style/TextAppearance.AppCompat.Title" />
 
             <RelativeLayout
@@ -41,6 +50,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginRight="@dimen/text_margin"
                     android:layout_marginEnd="@dimen/text_margin"
+                    android:text="@{String.valueOf(category.followersCount)}"
                     style="@style/OneLineText"/>
 
                 <TextView

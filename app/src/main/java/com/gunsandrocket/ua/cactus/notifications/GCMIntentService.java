@@ -83,7 +83,7 @@ public class GCMIntentService extends IntentService {
         String organiser = extras.getString("organiser");
         String vkLink = extras.getString("vkLink");
         String place = extras.getString("place");
-        Date startDate = (Date)extras.get("startDate");
+        Date startDate = new Date(extras.getLong("startDate"));
         String imageUrl = extras.getString("imageUrl");
         Integer followers = extras.getInt("followers");
         Event event = new Event(tag, organiser, name, descr, startDate, vkLink, place, followers, null, imageUrl);
