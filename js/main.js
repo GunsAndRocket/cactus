@@ -11,7 +11,7 @@ QB.createSession(QBUser, function (err, result) {
     } else {
         console.log('Session created with id ' + result.id);
         // Get all posts
-        $(document).ready(getAllTags());
+
         
         $("#upload").change(function () {
             // image extension validation
@@ -42,7 +42,7 @@ QB.createSession(QBUser, function (err, result) {
                 $('<span>' + file.name + '</span>').appendTo('.filename');
             }
         });
-
+        $(document).ready(getAllTags());
         $('#send_post').click(function (e) {
             e.preventDefault();
 
