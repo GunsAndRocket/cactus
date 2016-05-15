@@ -39,13 +39,8 @@ public class FeedFragment extends BaseFragment {
         binding.container.setAdapter(new SectionsPagerAdapter(getChildFragmentManager()));
         binding.tabs.setupWithViewPager(binding.container);
         activity.setSupportActionBar(binding.toolbar);
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), ChooseAddMethodActivity.class));
-                //finish();
-            }
-        });
+        binding.fab.setOnClickListener(v ->
+            startActivity(new Intent(getActivity(), ChooseAddMethodActivity.class)));
 
         Log.d("TAG", "in FF.onCreateView");
         return binding.getRoot();
@@ -92,17 +87,17 @@ public class FeedFragment extends BaseFragment {
             EventListAdapter adapter = new EventListAdapter(R.layout.events_list_item);
             binding.list.setLayoutManager(new GridLayoutManager(getContext(), 1));
             binding.list.setAdapter(adapter);
-//            switch (section) {
-//                case SECTION_ALL:
-//                    Log.d("TAG", "in all");
-//                    observable = dao.getEvents();
-//                    break;
-//
-//                case SECTION_RECOMMENDED:
-//                    Log.d("TAG", "in recommended");
-//                    observable = dao.getRecommendedEvents();
-//                    break;
-//            }
+            switch (section) {
+                case SECTION_ALL:
+                    Log.d("TAG", "in all");
+                    observable = dao.getEvents();
+                    break;
+
+                case SECTION_RECOMMENDED:
+                    Log.d("TAG", "in recommended");
+                    observable = dao.getRecommendedEvents();
+                    break;
+            }
 
 
             observable.subscribe(new Subscriber<List<Event>>() {

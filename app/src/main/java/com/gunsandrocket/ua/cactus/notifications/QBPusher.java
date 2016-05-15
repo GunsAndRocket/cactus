@@ -55,7 +55,7 @@ public class QBPusher {
         data.put("data.organiser", newEvent.getOrganiser());
         data.put("data.vkLink", newEvent.getVkLink());
         data.put("data.place", newEvent.getPlace());
-        data.put("data.startDate", newEvent.getStartDate());
+        data.put("data.startDate", newEvent.getStartDate().getTime());
         data.put("data.imageUrl", newEvent.getImageUrl());
         data.put("data.followers", newEvent.getFollowers());
 

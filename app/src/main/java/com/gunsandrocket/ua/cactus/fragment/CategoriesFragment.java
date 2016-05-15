@@ -64,6 +64,7 @@ public class CategoriesFragment extends BaseFragment {
             super.onActivityCreated(savedInstanceState);
 
             //Here we have to set adapter and bind it with data provider
+
         }
     }
 
