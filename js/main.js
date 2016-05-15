@@ -12,7 +12,11 @@ QB.createSession(QBUser, function (err, result) {
         console.log('Session created with id ' + result.id);
         // Get all posts
         // $(document).delay(10000);
+        setTimeout(function() { $(".selectpicker").selectpicker(); }, 1000);
         getAllTags();
+
+
+
 
         $("#upload").change(function () {
             // image extension validation
@@ -48,7 +52,7 @@ QB.createSession(QBUser, function (err, result) {
             e.preventDefault();
 
             var eventName = $('#text').val();
-            // var tag = $('.selectpicker').val();
+            var tag = $('.selectpicker').val();
             var organiser = $('#organiser').val();
             var description = $('#description').val();
             var startDate = $('#startDate').val() +" "+$('#startTime').val();
@@ -160,4 +164,5 @@ function showTag(name, type, lastPost) {
     } else {
         containerElement.append(postElement);
     }
+    $(".selectpicker").selectpicker("refresh");
 }
