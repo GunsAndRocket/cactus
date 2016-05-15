@@ -2,6 +2,12 @@ package com.gunsandrocket.ua.cactus.model;
 
 public class Category {
 
+    public Category(String name, String imageUrl, int eventsCount) {
+        this.name = name;
+        this.imageUrl = imageUrl;
+        this.eventsCount = eventsCount;
+    }
+
     public String getName() {
         return name;
     }
@@ -18,17 +24,17 @@ public class Category {
         this.imageUrl = imageUrl;
     }
 
-    public int getFollowersCount() {
-        return followersCount;
+    public int getEventsCount() {
+        return eventsCount;
     }
 
-    public void setFollowersCount(int followersCount) {
-        this.followersCount = followersCount;
+    public void setEventsCount(int eventsCount) {
+        this.eventsCount = eventsCount;
     }
 
     private String name;
     private String imageUrl;
-    private int followersCount;
+    private int eventsCount;
 
 
 

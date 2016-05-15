@@ -50,7 +50,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginRight="@dimen/text_margin"
                     android:layout_marginEnd="@dimen/text_margin"
-                    android:text="@{String.valueOf(category.followersCount)}"
+                    android:text="@{String.valueOf(category.eventsCount)}"
                     style="@style/OneLineText"/>
 
                 <TextView

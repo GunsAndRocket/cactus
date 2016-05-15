@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.gunsandrocket.ua.cactus.R;
+import com.gunsandrocket.ua.cactus.model.Category;
 import com.gunsandrocket.ua.cactus.model.Event;
 import com.gunsandrocket.ua.cactus.util.LocalSaver;
 import com.quickblox.auth.QBAuth;
@@ -23,6 +24,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import rx.*;
@@ -116,23 +118,100 @@ public class QbDao {
           .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<Category> getSportCategories(){
+    public Observable getSportCategories(){
         return Observable.create((obj)->{
             QBRequestGetBuilder requestBuilder = new QBRequestGetBuilder();
             requestBuilder.eq("type", "Sport");
             ArrayList<QBCustomObject> customObjects = null;
             try {
                 customObjects =
-                        QBCustomObjects.getObjects("Events", requestBuilder, new Bundle());
+                        QBCustomObjects.getObjects("Tags", requestBuilder, new Bundle());
             } catch (QBResponseException e) {
                 e.printStackTrace();
             }
             List<Category> categories = new ArrayList<Category>();
+            for (QBCustomObject co : customObjects) {
+                QBRequestGetBuilder coutEventsBuilder = new QBRequestGetBuilder();
+                coutEventsBuilder.eq("tag", co.getString("name"));
+                int count = 0;
+                try {
+                    count = QBCustomObjects.countObjects("Events", coutEventsBuilder);
+                } catch (QBResponseException e) {
+                    e.printStackTrace();
+                }
+                Category category = new Category(co.getString("name"), co.getString("image_url"),count);
+                categories.add(category);
+            }
+
             ((Subscriber) obj).onNext(categories);
             ((Subscriber) obj).onCompleted();
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
+
+    public Observable getEntertainmentCategories(){
+        return Observable.create((obj)->{
+            QBRequestGetBuilder requestBuilder = new QBRequestGetBuilder();
+            requestBuilder.eq("type", "Entertainment");
+            ArrayList<QBCustomObject> customObjects = null;
+            try {
+                customObjects =
+                        QBCustomObjects.getObjects("Tags", requestBuilder, new Bundle());
+            } catch (QBResponseException e) {
+                e.printStackTrace();
+            }
+            List<Category> categories = new ArrayList<Category>();
+            for (QBCustomObject co : customObjects) {
+                QBRequestGetBuilder coutEventsBuilder = new QBRequestGetBuilder();
+                coutEventsBuilder.eq("tag", co.getString("name"));
+                int count = 0;
+                try {
+                    count = QBCustomObjects.countObjects("Events", coutEventsBuilder);
+                } catch (QBResponseException e) {
+                    e.printStackTrace();
+                }
+                Category category = new Category(co.getString("name"), co.getString("image_url"),count);
+                categories.add(category);
+            }
+
+            ((Subscriber) obj).onNext(categories);
+            ((Subscriber) obj).onCompleted();
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Observable getScienceCategories(){
+        return Observable.create((obj)->{
+            QBRequestGetBuilder requestBuilder = new QBRequestGetBuilder();
+            requestBuilder.eq("type", "Science");
+            ArrayList<QBCustomObject> customObjects = null;
+            try {
+                customObjects =
+                        QBCustomObjects.getObjects("Tags", requestBuilder, new Bundle());
+            } catch (QBResponseException e) {
+                e.printStackTrace();
+            }
+            List<Category> categories = new ArrayList<Category>();
+            for (QBCustomObject co : customObjects) {
+                QBRequestGetBuilder coutEventsBuilder = new QBRequestGetBuilder();
+                coutEventsBuilder.eq("tag", co.getString("name"));
+                int count = 0;
+                try {
+                    count = QBCustomObjects.countObjects("Events", coutEventsBuilder);
+                } catch (QBResponseException e) {
+                    e.printStackTrace();
+                }
+                Category category = new Category(co.getString("name"), co.getString("image_url"),count);
+                categories.add(category);
+            }
+
+            ((Subscriber) obj).onNext(categories);
+            ((Subscriber) obj).onCompleted();
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+
 
     public Observable setUserTags(ArrayList<String> tags){
         return Observable.create((obj)->{
