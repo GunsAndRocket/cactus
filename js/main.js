@@ -225,7 +225,7 @@ function selectedEvent(eventId) {
             alert(data.error.error_msg);
         } else {
             $('#text').val(data.response[0].name);
-            $('#text_loadimg').html(data.response[0].photo_big);
+            // $('#text_loadimg').html(data.response[0].photo_big);
 
             $('#description').val('--------------------------'+'\n'+data.response[0].name+'\n'+'--------------------------');
             console.log(data);

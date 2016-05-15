@@ -145,6 +145,15 @@ textarea[type="text"]:focus::-webkit-input-placeholder {
     color: #4a14bc;
     transition: all 10000000s, font-size 0.2s, top 0.2s, color 0.2s, font-weight 0.2s;
 }
+textarea[type="text"]:not(:focus):invalid:not([value=""]) {
+    color: #f44336;
+    box-shadow: 0 304px 0 -300px rgba(63, 81, 181, 0), 0 2px 0 0 #fff, 0 4px 0 0 #f44336;
+}
+
+/*input[type="datetime-local"]:not(:focus):invalid:not([value=""])::-webkit-input-placeholder,*/
+textarea[type="text"]:not(:focus):invalid:not([value=""])::-webkit-input-placeholder {
+    color: #f44336;
+}
 
 input[type="date"] {
     border: 0;
@@ -163,6 +172,15 @@ input[type="date"] {
 
 input[type="date"]:focus {
     box-shadow: 0 4px 0 0 #6a189a, 0 2px 0 0 #fff, 0 4px 0 0 #757575;
+}
+input[type="date"]:not(:focus):invalid:not([value=""]) {
+    color: #f44336;
+    box-shadow: 0 304px 0 -300px rgba(63, 81, 181, 0), 0 2px 0 0 #fff, 0 4px 0 0 #f44336;
+}
+
+/*input[type="datetime-local"]:not(:focus):invalid:not([value=""])::-webkit-input-placeholder,*/
+input[type="date"]:not(:focus):invalid:not([value=""])::-webkit-input-placeholder {
+    color: #f44336;
 }
 
 input[type="date"]::-webkit-input-placeholder {
@@ -196,6 +214,15 @@ input[type="time"]::-webkit-input-placeholder {
     position: relative;
     top: 0;
     color: #757575;
+}
+input[type="time"]:not(:focus):invalid:not([value=""]) {
+    color: #f44336;
+    box-shadow: 0 304px 0 -300px rgba(63, 81, 181, 0), 0 2px 0 0 #fff, 0 4px 0 0 #f44336;
+}
+
+/*input[type="datetime-local"]:not(:focus):invalid:not([value=""])::-webkit-input-placeholder,*/
+input[type="time"]:not(:focus):invalid:not([value=""])::-webkit-input-placeholder {
+    color: #f44336;
 }
 input[type="text"] {
     border: 0;
@@ -294,6 +321,8 @@ input[type="submit"]:active {
 }
 
 #loadimage {
+    display: block;
+    float: left;
     text-align: left;
     border: 0;
     padding: 16px 64px;
@@ -303,8 +332,8 @@ input[type="submit"]:active {
     transition: all 0.3s;
     background: #4a14bc;
     color: #e1f5fe;
-
-    margin-left: -10px;
+    margin: 20px;
+    margin-left: -390px;
 }
 
 #loadimage:hover:not(:active) {
@@ -423,4 +452,12 @@ button:active {
     position: relative;
     margin-right: 10px;
     margin: 10px auto;
+}
+#startDate{
+    float: left;
+    width: 250px;
+}
+#startTime{
+    float: left;
+    width: 200px;
 }
