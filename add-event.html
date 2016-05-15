@@ -11,7 +11,7 @@
 <div class="header">
 
 
-    <h1>Hello Events :)</h1>
+    <h1>KPI Events</h1>
 </div>
 <form>
 
@@ -20,21 +20,12 @@
     <!--<input id="tag" onkeyup="this.setAttribute(&#39;value&#39;, this.value);"-->
            <!--pattern="{2,25}" placeholder="Tag"-->
            <!--autocomplete="off" required="" type="text" value=""/>-->
-    <select class="selectpicker" data-live-search="true" data-width="100%">
-        <optgroup label="category 1">
-            <option>Mustard</option>
-            <option>Ketchup</option>
-            <option>Relish</option>
+    <select class="selectpicker" data-live-search="true" data-width="100%" data-size="5" data-title="Tag">
+        <optgroup id="Sport" label="Sport">
         </optgroup>
-        <optgroup label="category 2">
-            <option>Plain</option>
-            <option>Steamed</option>
-            <option>Toasted</option>
+        <optgroup id="Science" label="Science">
         </optgroup>
-        <optgroup label="category 3">
-            <option>Plain</option>
-            <option>Steamed</option>
-            <option>Toasted</option>
+        <optgroup id="Entertaiment" label="Entertaiment">
         </optgroup>
     </select>
 
@@ -66,7 +57,7 @@
 
 
     <div class="g-recaptcha" id="capthca" data-sitekey="6LcK5h8TAAAAAEqRX9kbU6iGWHeJdbZz6IeO2Q4X"></div>
-    <button class="button" id="send_post">Submit1</button>
+    <button class="button" id="send_post">Add event</button>
 
 </form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

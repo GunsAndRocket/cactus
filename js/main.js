@@ -11,7 +11,7 @@ QB.createSession(QBUser, function (err, result) {
     } else {
         console.log('Session created with id ' + result.id);
         // Get all posts
-        // getAllPosts();
+        getAllTags();
 
         $("#upload").change(function () {
             // image extension validation
@@ -47,7 +47,7 @@ QB.createSession(QBUser, function (err, result) {
             e.preventDefault();
 
             var eventName = $('#text').val();
-            var tag = $('#tag').val();
+            var tag = $('.selectpicker').val();
             var organiser = $('#organiser').val();
             var description = $('#description').val();
             var startDate = $('#startDate').val();
@@ -65,7 +65,7 @@ QB.createSession(QBUser, function (err, result) {
                 file: inputFile,
                 type: inputFile.type,
                 size: inputFile.size,
-                'public': false
+                'public': true
             }, function (err, response) {
                 if (err) {
                     console.log(err);
@@ -74,7 +74,7 @@ QB.createSession(QBUser, function (err, result) {
 
                     var uploadedFile = response;
 
-                    var image_url = QB.content.privateUrl(uploadedFile.uid);
+                    var image_url = QB.content.publicUrl(uploadedFile.uid);
 
                     // Adds a new post
                     if (eventName && tag && organiser && description && startDate && vkLink && place && image_url) {
@@ -107,7 +107,7 @@ function addNewPost(eventName, tag, organiser, description, startDate, vkLink, p
             console.log(res);
 
             $('#text').val('');
-            $('#tag').val('');
+            $('.selectpicker').val('');
             $('#description').val('');
             $('#startDate').val('');
             $('#place').val('');
@@ -131,4 +131,31 @@ function addNewPost(eventName, tag, organiser, description, startDate, vkLink, p
 
         }
     });
+}
+
+function getAllTags() {
+    QB.data.list("Tags", function(err, result){
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(result);
+
+            for (var i=0; i < result.items.length; i++) {
+                var item = result.items[result.items.length-i-1];
+                showTag(item.name, item.type, false);
+            }
+        }
+    });
+}
+
+function showTag(name, type, lastPost) {
+    var containerElement = $('.selectpicker #' + type);
+    var postElement = $('<option></option>');
+    postElement.append('<strong>' + name + '</strong>');
+
+    if (lastPost) {
+        containerElement.prepend(postElement);
+    } else {
+        containerElement.append(postElement);
+    }
 }

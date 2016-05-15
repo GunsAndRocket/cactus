@@ -119,8 +119,8 @@ textarea[type="text"] {
     margin: 0px 10px 20px -8px;
     padding: 25px 8px 4px;
     transition: all 0.2s;
-    color: #424242;
-    box-shadow: 0 304px 0 -300px rgba(33, 150, 243, 0), 0 2px 0 0 #fff, 0 4px 0 0 #757575;
+    color: #4a14bc;
+    box-shadow: 0 304px 0 -300px rgba(33, 150, 243, 0), 0 0px 0 0 #fff, 0 2px 0 0 #757575;
     font-size: 24px;
 }
 
@@ -156,8 +156,8 @@ input[type="datetime-local"] {
     margin-left: 310px;
     padding: 15px 8px 4px;
     transition: all 0.2s;
-    color: #424242;
-    box-shadow: 0 304px 0 -300px rgba(33, 150, 243, 0), 0 2px 0 0 #fff, 0 4px 0 0 #757575;
+    color: #4a14bc;
+    box-shadow: 0 304px 0 -300px rgba(33, 150, 243, 0), 0 0px 0 0 #fff, 0 2px 0 0 #757575;
     font-size: 18px;
 }
 
@@ -182,7 +182,7 @@ input[type="text"] {
     padding: 15px 8px 4px;
     transition: all 0.2s;
     color: #4a14bc;
-    box-shadow: 0 304px 0 -300px rgba(33, 150, 243, 0), 0 2px 0 0 #fff, 0 4px 0 0 #757575;
+    box-shadow: 0 304px 0 -300px rgba(33, 150, 243, 0), 0 0px 0 0 #fff, 0 2px 0 0 #757575;
     font-size: 24px;
 }
 
@@ -209,7 +209,7 @@ input[type="text"]:focus::-webkit-input-placeholder {
 
 /*input[type="datetime-local"]:not(:focus):valid,*/
 input[type="text"]:not(:focus):valid {
-    box-shadow: 0 304px 0 -300px rgba(63, 81, 181, 0), 0 2px 0 0 #fff, 0 4px 0 0 #4a14bc;
+    box-shadow: 0 304px 0 -300px rgba(63, 81, 181, 0), 0 2px 0 0 #fff, 0 4px 0 0 #757575;
 }
 
 /*input[type="datetime-local"]:not(:focus):not([value=""])::-webkit-input-placeholder,*/
@@ -318,4 +318,39 @@ button:active {
     padding: 24px;
     z-index: 1000;
     font-weight: 100;
+}
+/*.btn-group .bootstrap-select{*/
+    /*!*margin: 0px 10px 20px -8px;*!*/
+    /*!*box-shadow: 0 304px 0 -300px rgba(33, 150, 243, 0), 0 2px 0 0 #fff, 0 4px 0 0 #757575;*!*/
+/*}*/
+.dropdown-toggle{
+    /*width: 800px;*/
+    /*margin: 0px 10px 20px -8px;*/
+    /*padding: 15px 8px 4px;*/
+    box-shadow: 0 304px 0 -300px rgba(33, 150, 243, 0), 0 0px 0 0 #fff, 0 2px 0 0 #757575;
+}
+.dropdown-toggle.btn-default, .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn){
+    background-color: #eee;
+    font-size: 24px;
+    color: rgba(74, 20, 188, 0.6);
+    padding: 15px 8px 4px;
+}
+/*.dropdown-toggle.btn-default:hover{*/
+    /*color: #4a14bc;*/
+/*}*/
+.bs-searchbox input{
+    height: inherit;
+    font-size: 16px;
+}
+.btn-group > .btn:first-child{
+    border: 0;
+    width: 800px;
+    margin: -8px 10px 20px -8px;
+    padding: 15px 8px 4px;
+}
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover{
+    background-color: #4a14bc;
+}
+.bootstrap-select.btn-group:not(.input-group-btn){
+    margin-left: -15px;
 }
