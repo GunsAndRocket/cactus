@@ -11,8 +11,8 @@ QB.createSession(QBUser, function (err, result) {
     } else {
         console.log('Session created with id ' + result.id);
         // Get all posts
-        getAllTags();
-
+        $(document).ready(getAllTags());
+        
         $("#upload").change(function () {
             // image extension validation
             var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".png"];
