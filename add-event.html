@@ -6,8 +6,24 @@
     <link rel="stylesheet" type="text/css" href="style/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="style/main.css">
     <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
 </head>
 <body>
+<script language="javascript">
+    VK.init({
+        apiId: 5379550
+    });
+    function authInfo(response) {
+        if (response.session) {
+            window.location.href = "add-event.html";
+        } else {
+            alert('not auth');
+            window.location.href = "index.html";
+        }
+    }
+    VK.Auth.getLoginStatus(authInfo);
+    //    VK.UI.button('login_button');
+</script>
 <div class="header">
 
 

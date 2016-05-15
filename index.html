@@ -16,13 +16,13 @@
     });
     function authInfo(response) {
         if (response.session) {
-            alert('user: '+response.session.mid);
+            window.location.href = "add-event.html";
         } else {
             alert('not auth');
         }
     }
-    VK.Auth.getLoginStatus(authInfo);
-    VK.UI.button('login_button');
+//    VK.Auth.getLoginStatus(authInfo);
+//    VK.UI.button('login_button');
 </script>
 <div class="header">
     <h1>Events</h1>
