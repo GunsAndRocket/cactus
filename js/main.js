@@ -11,7 +11,7 @@ QB.createSession(QBUser, function (err, result) {
     } else {
         console.log('Session created with id ' + result.id);
         // Get all posts
-        $(document).delay(1000);
+        // $(document).delay(10000);
         getAllTags();
 
         $("#upload").change(function () {
@@ -48,10 +48,10 @@ QB.createSession(QBUser, function (err, result) {
             e.preventDefault();
 
             var eventName = $('#text').val();
-            var tag = $('.selectpicker').val();
+            // var tag = $('.selectpicker').val();
             var organiser = $('#organiser').val();
             var description = $('#description').val();
-            var startDate = $('#startDate').val();
+            var startDate = $('#startDate').val() +" "+$('#startTime').val();
             var vkLink = $('#vkLink').val();
             var place = $('#place').val();
 
@@ -96,7 +96,7 @@ function addNewPost(eventName, tag, organiser, description, startDate, vkLink, p
         name: eventName,
         organiser: organiser,
         description: description,
-        startDate: startDate,
+        startDate: startDate ,
         vkLink: vkLink,
         place: place,
         followers: 0,
@@ -111,6 +111,7 @@ function addNewPost(eventName, tag, organiser, description, startDate, vkLink, p
             $('.selectpicker').val('');
             $('#description').val('');
             $('#startDate').val('');
+            $('#startTime').val('');
             $('#place').val('');
             $('#organiser').val('');
             $('#vkLink').val('');
@@ -119,7 +120,7 @@ function addNewPost(eventName, tag, organiser, description, startDate, vkLink, p
                 notification_type: 'push',
                 user: {tags: {any: [tag]}},
                 environment: 'development', // environment, can be 'production' as well.
-                message: QB.pushnotifications.base64Encode("Hey, guys, let's go smoking")
+                message: QB.pushnotifications.base64Encode("New event" + eventName)
             };
 
             QB.pushnotifications.events.create(params, function (err, response) {

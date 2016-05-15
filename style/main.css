@@ -146,14 +146,14 @@ textarea[type="text"]:focus::-webkit-input-placeholder {
     transition: all 10000000s, font-size 0.2s, top 0.2s, color 0.2s, font-weight 0.2s;
 }
 
-input[type="datetime-local"] {
+input[type="date"] {
     border: 0;
     background: rgba(0, 0, 0, 0);
     outline: 0;
-    width: 270px;
+    width: 190px;
     /*height: 0px;*/
     /*margin: 0px 10px 20px -8px;*/
-    margin-left: 310px;
+    margin-left: 280px;
     padding: 15px 8px 4px;
     transition: all 0.2s;
     color: #4a14bc;
@@ -161,17 +161,42 @@ input[type="datetime-local"] {
     font-size: 18px;
 }
 
-input[type="datetime-local"]:focus {
+input[type="date"]:focus {
     box-shadow: 0 4px 0 0 #6a189a, 0 2px 0 0 #fff, 0 4px 0 0 #757575;
 }
 
-input[type="datetime-local"]::-webkit-input-placeholder {
+input[type="date"]::-webkit-input-placeholder {
     transition: all 10s, font-size 0.2s, top 0.2s, color 0.2s, font-weight 0.2s;
     position: relative;
     top: 0;
     color: #757575;
 }
 
+input[type="time"] {
+    border: 0;
+    background: rgba(0, 0, 0, 0);
+    outline: 0;
+    width: 100px;
+    /*height: 0px;*/
+    /*margin: 0px 10px 20px -8px;*/
+    margin-left: 10px;
+    padding: 15px 8px 4px;
+    transition: all 0.2s;
+    color: #4a14bc;
+    box-shadow: 0 304px 0 -300px rgba(33, 150, 243, 0), 0 0px 0 0 #fff, 0 2px 0 0 #757575;
+    font-size: 18px;
+}
+
+input[type="time"]:focus {
+    box-shadow: 0 4px 0 0 #6a189a, 0 2px 0 0 #fff, 0 4px 0 0 #757575;
+}
+
+input[type="time"]::-webkit-input-placeholder {
+    transition: all 10s, font-size 0.2s, top 0.2s, color 0.2s, font-weight 0.2s;
+    position: relative;
+    top: 0;
+    color: #757575;
+}
 input[type="text"] {
     border: 0;
     background: rgba(0, 0, 0, 0);

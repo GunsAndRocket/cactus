@@ -40,14 +40,16 @@
             <input type="file" id="upload" style="display:none">
         </label>
         <input id="startDate"
-               placeholder="StartDate" autocomplete="off" required="" type="datetime-local" value=""/>
+               placeholder="StartDate" autocomplete="off" required="" type="date" value=""/>
+        <input id="startTime"
+               placeholder="StartDate" autocomplete="off" required="" type="time" value=""/>
         <p class="filename" id="text_loadimg"></p>
     </div>
     <input id="vkLink" onkeyup="this.setAttribute(&#39;value&#39;, this.value);"
            placeholder="Vk-link"
            autocomplete="off" type="text" value=""/>
     <input id="place" onkeyup="this.setAttribute(&#39;value&#39;, this.value);"
-           pattern="[a-zA-Z0-1]{2,50}" placeholder="Place"
+           pattern="{3,50}" placeholder="Place"
            autocomplete="off" required="" type="text" value=""/>
 
     <br/><br/>
@@ -62,10 +64,11 @@
 </form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/i18n/defaults-*.min.js"></script>-->
 <script src="js/quickblox.min.js"></script>
 <script src="js/config.js"></script>
 <script src="js/main.js"></script>
 <script src="js/bootstrap-select.js"></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/i18n/defaults-*.min.js"></script>-->
+
 </body>
 </html>
