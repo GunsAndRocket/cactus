@@ -15,7 +15,7 @@
 </div>
 <form>
 
-    <input id="text" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern="{2,50}"
+    <input id="text" onkeyup="this.setAttribute(&#39;value&#39;, this.value);" pattern="[a-zA-Z]{5,50}"
            placeholder="Name of Event" autocomplete="off" required="" type="text" value=""/>
     <!--<input id="tag" onkeyup="this.setAttribute(&#39;value&#39;, this.value);"-->
            <!--pattern="{2,25}" placeholder="Tag"-->
@@ -29,10 +29,9 @@
         </optgroup>
     </select>
 
-    <input id="organiser"
-
+    <input id="organiser" pattern="[a-zA-Z]{2,30}"
            placeholder="Organiser" autocomplete="off" required="" type="text" value=""/>
-    <textarea id="description" type="text" placeholder="Description" required=""></textarea>
+    <textarea id="description" type="text" placeholder="Description" required="" pattern="[a-zA-Z]{2,300}"></textarea>
 
     <div style="margin-bottom: 20px" onsubmit="return Validate(this);">
         <label for="upload">
@@ -46,10 +45,10 @@
         <p class="filename" id="text_loadimg"></p>
     </div>
     <input id="vkLink" onkeyup="this.setAttribute(&#39;value&#39;, this.value);"
-           placeholder="Vk-link"
+           placeholder="Vk-link" pattern="vk\.com+\/+[a-zA-Z0-9]{2,50}"
            autocomplete="off" type="text" value=""/>
     <input id="place" onkeyup="this.setAttribute(&#39;value&#39;, this.value);"
-           pattern="{3,50}" placeholder="Place"
+           pattern="[a-zA-Z]{2,50}" placeholder="Place"
            autocomplete="off" required="" type="text" value=""/>
 
     <br/><br/>
