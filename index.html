@@ -5,20 +5,26 @@
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body ng-controller="AppCtrl" >
-<button class="mui-btn mui-btn--fab mui-btn--danger" onclick="location.href = 'add-event.html';" style="bottom: 45px; right: 20px; position: fixed">+</button>
+<button class="mui-btn mui-btn--fab mui-btn--danger" onclick="location.href = 'add-event.html';" style="bottom: 45px; right: -50px; position: fixed;width: 75px;height: 75px">+</button>
 <div class="header" >
     <h1>Events</h1>
 </div>
-<form ng-repeat="item in [1,2,3]">
-    <div class="thumb1" style="background: url({{imagePath}}) 50% 50% no-repeat; width: 100%;
+<form ng-repeat="item in items">
+    <div>
+        <h1 id="Name" >{{item.name}}</h1>
+        <h3 id="tag">tag:{{item.tag}}</h3>
+    </div>
+
+    <div id="image" class="thumb1" style="background: url({{item.image_url}}) 50% 50% no-repeat; width: 100%;
     height: 250px;">
     </div>
-    <h1 style="text-align: left; margin-left: 10px">{{items}}</h1>
-    <h2 style="text-align: left; margin-left: 10px">atatatatatatatatatatatatatatt
-    tatatata
-    tatat
-    atatatt</h2>
-    <!--<img src="{{imagePath}}" height="20%" width="100%">-->
+    <h3 id="desc" style="text-align: left; margin-left: 10px">{{item.description}}</h3>
+
+
+
+    <h2 id="place" style="text-align: right; margin-right: 10px">place:{{item.place}}</h2>
+    <a id="vkLink" style="text-align: right; margin-right: 10px" href="{{item.vkLink}}">{{item.vkLink}}</a>
+
 </form>
 <!--<form  class="inline" >-->
 
