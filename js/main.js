@@ -200,28 +200,48 @@ function uploadFromVk() {
     });
 }
 span.onclick = function() {
-    modal.style.display = "none";
     uplBtn.style.display = "block";
-    $('.modal-content').html("");
+    modal.style.display = "none";
+    $('.modal-content').html('<span class="close">x</span>');
 };
 window.onclick = function(event) {
     if (event.target == modal) {
         uplBtn.style.display = "block";
         modal.style.display = "none";
-        $('.modal-content').html("");
+        $('.modal-content').html('<span class="close">x</span>');
     }
 };
 function selectedEvent(eventId) {
+    uplBtn.style.display = "block";
+    modal.style.display = "none";
+    $('.modal-content').html('<span class="close">x</span>');
     VK.init({
         apiId: 5379550,
 
     })
-    VK.Api.call('groups.getById', {group_ids: eventId, extended: 1, filter: 'events'}, function (data) {
+    VK.Api.call('groups.getById', {group_ids: eventId}, function (data) {
         // alert(data);
         if (data.error) {
             alert(data.error.error_msg);
         } else {
+            $('#text').val(data.response[0].name);
+            $('#text_loadimg').html(data.response[0].photo_big);
+
+            $('#description').val('--------------------------'+'\n'+data.response[0].name+'\n'+'--------------------------');
             console.log(data);
+            $('#vkLink').val('vk.com/'+data.response[0].screen_name);
         }
     });
+    VK.Api.call('users.get', {userId: 'uid'}, function (data) {
+        // alert(data);
+        if (data.error) {
+            alert(data.error.error_msg);
+        } else {
+
+            $('#organiser').val(data.response[0].first_name+' '+data.response[0].last_name);
+            console.log(data);
+
+        }
+    });
+
 }
